@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Life2: Civilization Ontology",
+  "description": "Comprehensive schema for modeling civilization-level systems, policies, and collective well-being.",
+  "type": "object",
+  "required": ["demographics", "economy", "governance", "environment", "culture", "infrastructure"],
+  "properties": {
+    "demographics": {
+      "type": "object",
+      "properties": {
+        "population": {
+          "type": "object",
+          "properties": {
+            "total": {"type": "integer"},
+            "growth_rate": {"type": "number"},
+            "age_distribution": {"type": "object"},
+            "migration_patterns": {"type": "array", "items": {"type": "object"}}
+          }
+        },
+        "health_metrics": {
+          "type": "object",
+          "properties": {
+            "life_expectancy": {"type": "number"},
+            "infant_mortality_rate": {"type": "number"},
+            "disease_prevalence": {"type": "object"}
+          }
+        },
+        "education": {
+          "type": "object",
+          "properties": {
+            "literacy_rate": {"type": "number"},
+            "average_years_of_schooling": {"type": "number"},
+            "access_to_higher_education": {"type": "number"}
+          }
+        }
+      }
+    },
+    "economy": {
+      "type": "object",
+      "properties": {
+        "gdp": {
+          "type": "object",
+          "properties": {
+            "total": {"type": "number"},
+            "per_capita": {"type": "number"},
+            "growth_rate": {"type": "number"}
+          }
+        },
+        "employment": {
+          "type": "object",
+          "properties": {
+            "unemployment_rate": {"type": "number"},
+            "labor_force_participation": {"type": "number"},
+            "sector_distribution": {"type": "object"}
+          }
+        },
+        "inequality": {
+          "type": "object",
+          "properties": {
+            "gini_coefficient": {"type": "number"},
+            "wealth_distribution": {"type": "object"}
+          }
+        },
+        "trade": {
+          "type": "object",
+          "properties": {
+            "exports": {"type": "number"},
+            "imports": {"type": "number"},
+            "balance_of_trade": {"type": "number"}
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "political_system": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "stability_index": {"type": "number"},
+            "corruption_index": {"type": "number"}
+          }
+        },
+        "policy_frameworks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "domain": {"type": "string"},
+              "impact_score": {"type": "number"},
+              "implementation_status": {"type": "string"}
+            }
+          }
+        },
+        "civic_engagement": {
+          "type": "object",
+          "properties": {
+            "voter_turnout": {"type": "number"},
+            "trust_in_institutions": {"type": "number"},
+            "civil_society_strength": {"type": "number"}
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "climate": {
+          "type": "object",
+          "properties": {
+            "average_temperature": {"type": "number"},
+            "carbon_emissions": {"type": "number"},
+            "renewable_energy_percentage": {"type": "number"}
+          }
+        },
+        "biodiversity": {
+          "type": "object",
+          "properties": {
+            "species_richness": {"type": "number"},
+            "habitat_loss_rate": {"type": "number"},
+            "protected_areas_percentage": {"type": "number"}
+          }
+        },
+        "resource_management": {
+          "type": "object",
+          "properties": {
+            "water_availability": {"type": "number"},
+            "waste_recycling_rate": {"type": "number"},
+            "sustainable_practices_index": {"type": "number"}
+          }
+        }
+      }
+    },
+    "culture": {
+      "type": "object",
+      "properties": {
+        "social_cohesion": {
+          "type": "object",
+          "properties": {
+            "trust_between_groups": {"type": "number"},
+            "cultural_diversity_index": {"type": "number"},
+            "social_mobility": {"type": "number"}
+          }
+        },
+        "wellbeing": {
+          "type": "object",
+          "properties": {
+            "happiness_index": {"type": "number"},
+            "mental_health_prevalence": {"type": "number"},
+            "work_life_balance_score": {"type": "number"}
+          }
+        },
+        "innovation": {
+          "type": "object",
+          "properties": {
+            "rd_spending_percentage": {"type": "number"},
+            "patent_filings": {"type": "integer"},
+            "digital_adoption_rate": {"type": "number"}
+          }
+        }
+      }
+    },
+    "infrastructure": {
+      "type": "object",
+      "properties": {
+        "transportation": {
+          "type": "object",
+          "properties": {
+            "public_transit_coverage": {"type": "number"},
+            "road_quality_index": {"type": "number"},
+            "average_commute_time": {"type": "number"}
+          }
+        },
+        "digital": {
+          "type": "object",
+          "properties": {
+            "internet_penetration": {"type": "number"},
+            "broadband_speed": {"type": "number"},
+            "digital_divide_index": {"type": "number"}
+          }
+        },
+        "utilities": {
+          "type": "object",
+          "properties": {
+            "electricity_reliability": {"type": "number"},
+            "clean_water_access": {"type": "number"},
+            "sanitation_coverage": {"type": "number"}
+          }
+        }
+      }
+    }
+  }
+}

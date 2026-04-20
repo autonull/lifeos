@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Life1: Individual Life Ontology",
+  "description": "Comprehensive schema for modern human life (Individual Level)",
+  "type": "object",
+  "required": ["identity", "biology", "psychology", "social_connections", "environment", "lifecycle", "activities_practices", "existential_dimensions"],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "object",
+          "properties": {
+            "legal_name": {"type": "string"},
+            "preferred_name": {"type": "string"}
+          }
+        },
+        "self_concept": {
+          "type": "object",
+          "properties": {
+            "values": {"type": "array", "items": {"type": "string"}},
+            "beliefs": {"type": "object"}
+          }
+        }
+      }
+    },
+    "biology": {
+      "type": "object",
+      "properties": {
+        "sleep_patterns": {
+          "type": "object",
+          "properties": {
+            "average_duration_hours": {"type": "number"},
+            "quality_score": {"type": "integer", "minimum": 1, "maximum": 10}
+          }
+        },
+        "vital_signs": {"type": "object"},
+        "fitness_metrics": {"type": "object"}
+      }
+    },
+    "psychology": {
+      "type": "object",
+      "properties": {
+        "emotional_landscape": {
+          "type": "object",
+          "properties": {
+            "baseline_mood": {"type": "string"},
+            "stress_level": {"type": "integer", "minimum": 0, "maximum": 10},
+            "energy_level": {"type": "integer", "minimum": 0, "maximum": 10}
+          }
+        },
+        "cognitive_abilities": {"type": "object"}
+      }
+    },
+    "social_connections": {
+      "type": "object",
+      "properties": {
+        "family_created": {"type": "object"},
+        "friendship_network": {"type": "object"},
+        "professional_network": {"type": "object"}
+      }
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "physical_spaces": {"type": "object"},
+        "digital_environment": {"type": "object"}
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "routines": {"type": "object"},
+        "life_events": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "activities_practices": {
+      "type": "object",
+      "properties": {
+        "work_productivity": {
+          "type": "object",
+          "properties": {
+            "weekly_hours": {"type": "number"}
+          }
+        },
+        "leisure_recreation": {"type": "object"}
+      }
+    },
+    "existential_dimensions": {
+      "type": "object",
+      "properties": {
+        "values_hierarchy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {"type": "string"},
+              "priority_rank": {"type": "integer"}
+            }
+          }
+        },
+        "purpose_statement": {"type": "string"}
+      }
+    }
+  }
+}
