@@ -64,6 +64,26 @@ LifeOS is not just a personal tracker; it's a **civilization-scale engine** (via
 - **Life1 (Individual)**: Comprehensive schema for personal life (identity, biology, psychology, social connections, etc.).
 - **Life2 (Civilization)**: Schema for modeling societal systems (demographics, economy, governance, environment, culture, infrastructure).
 
+### Hermes Agent Integration
+
+LifeOS includes **Hermes Agent skills** in the `skills/` directory for deep integration:
+
+- **`lifeos-agent-operations`** (Required): Agent-side instructions for operating LifeOS on behalf of the user. Covers schemaless logging, adaptive fidelity, multiverse simulation, and agent-curated maintenance.
+
+**To install the skills:**
+```bash
+# Automated installer (recommended)
+./scripts/install_skills.sh
+
+# Or manual copy
+cp -r ~/lifeos/skills/lifeos-agent-operations ~/.hermes/skills/productivity/
+
+# Or use Hermes CLI
+hermes skills install ~/lifeos/skills/lifeos-agent-operations
+```
+
+See `skills/README.md` for detailed usage instructions.
+
 ---
 
 ## 🚀 Installation & Setup
@@ -78,11 +98,14 @@ LifeOS is not just a personal tracker; it's a **civilization-scale engine** (via
 cd ~/lifeos
 
 # Install the package
-source venv/bin/activate  # If using venv
+source venv/bin/activate # If using venv
 pip install -e .
 
 # Initialize your LifeOS instance
 lifeos init
+
+# (Optional) Install Hermes Agent skills for deep integration
+./scripts/install_skills.sh
 ```
 
 ### Verify Installation
