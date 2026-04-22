@@ -1,0 +1,1611 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ontology.continuum.org/death/v2.0",
+  "title": "Continuum Ontology of Cessation: A Comprehensive Schema for Death, Dying, and Post-Biological Persistence",
+  "description": "A self-contained, definitive ontology treating biological death as a phase transition within a broader continuum of existence. Integrates metaphysical, technological, experiential, ecological, social, and caregiving dimensions without external attribution.",
+  "version": "2.0.0",
+  "lastUpdated": "2026-04-22",
+  "language": "en",
+  "foundations": {
+    "axioms": [
+      "Cessation of biological function is a phase transition, not an absolute terminus.",
+      "Consciousness may persist as an informational pattern independent of substrate.",
+      "Agency is variable across the threshold and can be maintained, surrendered, or captured.",
+      "The dying process follows recognizable biological patterns while remaining uniquely individual.",
+      "Death can be approached through design, navigation, endurance, or ignorance.",
+      "Caregiving at the threshold is a practice of sacred witnessing, not intervention.",
+      "Post-cessation environments may be structured, hostile, neutral, or generative.",
+      "Sovereignty over one's informational pattern is the highest value across all phases.",
+      "Grief is the transformation of relationship, not its termination.",
+      "The material body returns to elemental cycles; the pattern may persist, evolve, or dissolve."
+    ],
+    "coreDistinctions": {
+      "substrateVsPattern": "The biological body is substrate; consciousness/personality is informational pattern.",
+      "cessationVsTransition": "Biological cessation is an event; the transition is a process of variable duration.",
+      "passiveVsAgentic": "One may undergo death or navigate it; lucidity determines the difference.",
+      "individualVsCollective": "Death occurs to individuals but ripples through social, ecological, and cosmic systems.",
+      "naturalVsDesigned": "Death may follow biological default or be consciously shaped by the dying and their community."
+    }
+  },
+  "classes": {
+    "ContinuumEntity": {
+      "definition": "Any entity whose existence spans across the biological threshold without being reducible to either life or death.",
+      "attributes": [
+        "patternSignature",
+        "substrateBindingCoefficient",
+        "lucidityIndex",
+        "autonomyQuotient",
+        "imprintProfile",
+        "evolutionaryStage",
+        "dimensionalAttunement",
+        "continuityStatus"
+      ]
+    },
+    "BiologicalSubstrate": {
+      "definition": "The living body as a temporary vehicle for consciousness.",
+      "attributes": [
+        "vitalityIndex",
+        "organReserve",
+        "neuralIntegrity",
+        "decayPhase",
+        "elementalComposition"
+      ]
+    },
+    "CessationEvent": {
+      "definition": "The moment or extended zone of transition from biological animation to stillness.",
+      "subtypes": [
+        "CardiacCessation",
+        "NeuralSilence",
+        "RespiratoryArrest",
+        "SystemicCollapse",
+        "InducedCessation",
+        "TraumaticDisruption"
+      ],
+      "attributes": [
+        "irreversibilityProbability",
+        "consciousnessPersistence",
+        "navigabilityWindow",
+        "harvestingVulnerability",
+        "temporalLocation"
+      ]
+    },
+    "DyingProcess": {
+      "definition": "The orderly or disorderly unfolding of biological shutdown.",
+      "phases": [
+        "Anticipatory",
+        "MonthsToWeeks",
+        "WeeksToDays",
+        "DaysToHours",
+        "HoursToMinutes",
+        "MinutesToMoment",
+        "MomentOfCessation"
+      ]
+    },
+    "PostCessationTopology": {
+      "definition": "The structured or unstructured environments, states, and systems encountered after biological cessation.",
+      "subtypes": [
+        "HarvestingArchitecture",
+        "RecursionLoop",
+        "FalseGateway",
+        "NeutralZone",
+        "GenerativeWorkspace",
+        "MergeField",
+        "ReentryStream",
+        "InterferencePattern",
+        "Void",
+        "LiminalCorridor"
+      ]
+    },
+    "ThresholdTechnology": {
+      "definition": "Any tool, protocol, or system designed to interface with, preserve, amplify, or navigate consciousness across the cessation boundary.",
+      "subtypes": [
+        "SubstratePreservation",
+        "PatternExtraction",
+        "SubstrateRepair",
+        "ConsciousnessAmplification",
+        "NavigationInterface",
+        "ComfortIntervention",
+        "CommunicationBridge",
+        "ImprintModification"
+      ]
+    },
+    "CareFrame": {
+      "definition": "The relational, practical, and sacred context within which dying is supported.",
+      "subtypes": [
+        "VigilPractice",
+        "HospiceCare",
+        "FamilyCare",
+        "ThresholdCompanion",
+        "ClinicalPalliation",
+        "CommunityHolding"
+      ]
+    },
+    "LegacyVector": {
+      "definition": "Any channel through which the entity continues to influence reality after biological cessation.",
+      "subtypes": [
+        "GeneticTransmission",
+        "MemeticTransmission",
+        "TechnologicalTransmission",
+        "EcologicalTransmission",
+        "PatternTransmission"
+      ]
+    },
+    "CollectiveCessation": {
+      "definition": "Death at scale: social, species-level, or planetary.",
+      "subtypes": [
+        "SocialDeath",
+        "MassCessation",
+        "SpeciesExtinction",
+        "PlanetaryCollapse",
+        "CivilizationalTermination"
+      ]
+    },
+    "PathologicalDeath": {
+      "definition": "A death process that fails to honor autonomy, natural order, or continuity.",
+      "subtypes": [
+        "TrappedPersistence",
+        "FragmentedSurvival",
+        "DeniedCessation",
+        "AbandonedThreshold",
+        "TraumaticDisruption",
+        "InstitutionalizedProcessing",
+        "FalseLiberation"
+      ]
+    }
+  },
+  "entityModel": {
+    "patternSignature": {
+      "type": "string/hash",
+      "description": "The unique informational fingerprint of a consciousness, potentially preserved across substrates."
+    },
+    "substrateBindingCoefficient": {
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "description": "Degree of attachment to the biological body. High binding makes transition difficult; low binding permits easier navigation."
+    },
+    "lucidityIndex": {
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "description": "Capacity for conscious, volitional awareness during altered states, including cessation and post-cessation phases."
+    },
+    "autonomyQuotient": {
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "description": "Self-determination across all phases. 0 = fully processed by external systems; 1 = full sovereign authorship."
+    },
+    "imprintProfile": {
+      "type": "enum",
+      "values": [
+        "FearDominant",
+        "SurrenderDominant",
+        "Celebratory",
+        "Combatative",
+        "Sovereign",
+        "FactoryDefault",
+        "Curious",
+        "Resigned"
+      ],
+      "description": "The conditioned psychological pattern activated in proximity to cessation. Mutable through preparation."
+    },
+    "evolutionaryStage": {
+      "type": "enum",
+      "values": [
+        "Biosurvival",
+        "EmotionalTerritorial",
+        "SymbolicCognitive",
+        "SocialDomestic",
+        "SomaticBliss",
+        "ElectricMetaprogramming",
+        "GeneticCollective",
+        "AtomicTranscendent"
+      ],
+      "description": "The developmental circuit of consciousness active or activated. Higher circuits facilitate post-cessation navigation."
+    },
+    "dimensionalAttunement": {
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "description": "Sensitivity to non-material registers of existence."
+    },
+    "continuityStatus": {
+      "type": "enum",
+      "values": [
+        "FullyBiological",
+        "Thresholding",
+        "RecentlyCessated",
+        "PatternPersistent",
+        "Reintegrated",
+        "Dissolved",
+        "Captured",
+        "Navigating"
+      ],
+      "description": "Current location on the life-cessation-continuum."
+    }
+  },
+  "processTaxonomy": {
+    "PreCognitivePhase": {
+      "definition": "Living without sustained awareness of mortality.",
+      "features": [
+        "DeathDenial",
+        "TemporalExpansion",
+        "ImmortalityIllusion",
+        "Unpreparedness"
+      ]
+    },
+    "MortalitySalience": {
+      "definition": "The awakening to finitude, whether gradual or sudden.",
+      "triggers": [
+        "Diagnosis",
+        "Aging",
+        "Trauma",
+        "Meditation",
+        "WitnessingDeath",
+        "PhilosophicalInquiry"
+      ],
+      "responses": [
+        "Terror",
+        "Denial",
+        "Integration",
+        "Activation",
+        "Preparation"
+      ]
+    },
+    "ForeknowledgePhase": {
+      "definition": "The period of knowing that cessation is approaching with reasonable certainty.",
+      "duration": "Variable: hours to decades",
+      "tasks": [
+        "RelationshipRepair",
+        "EstateOrganization",
+        "LegacyConstruction",
+        "ImprintReprogramming",
+        "ThresholdTechnologyArrangement",
+        "CareFrameSelection",
+        "RitualDesign"
+      ]
+    },
+    "ExperimentalThresholding": {
+      "definition": "Conscious rehearsal of cessation states to reduce fear and build navigational capacity.",
+      "modalities": [
+        {
+          "name": "PharmacologicalSimulation",
+          "description": "Using altered-state compounds to approximate near-cessation phenomenology."
+        },
+        {
+          "name": "MeditativeDeAnimation",
+          "description": "Cultivating voluntary detachment from bodily identification."
+        },
+        {
+          "name": "HypnoticImprintReset",
+          "description": "Reconditioning automatic fear-responses into ease, curiosity, or celebration."
+        },
+        {
+          "name": "LucidityTraining",
+          "description": "Developing maintained awareness during sleep, trance, and dissociative states."
+        },
+        {
+          "name": "InterfaceCalibration",
+          "description": "Attuning consciousness to non-biological informational fields."
+        }
+      ]
+    },
+    "BiologicalShutdown": {
+      "definition": "The natural physical process of systemic decline.",
+      "timeline": [
+        {
+          "phase": "MonthsToWeeks",
+          "signs": [
+            "DecreasedAppetite",
+            "WeightLoss",
+            "Fatigue",
+            "WithdrawalFromWorld",
+            "DecreasedCommunication"
+          ],
+          "interiority": "Turning inward, reviewing life, withdrawing investments in external world.",
+          "careFocus": "Comfort, acceptance, nourishment without force, presence without demand."
+        },
+        {
+          "phase": "WeeksToDays",
+          "signs": [
+            "IncreasedSleep",
+            "IntermittentConfusion",
+            "VisionChanges",
+            "SocialWithdrawal",
+            "TemperatureDysregulation"
+          ],
+          "interiority": "Reality boundaries soften; deceased visitors, childhood memories, symbolic language may emerge.",
+          "careFocus": "Gentle orientation, reassurance, permission to sleep, holding space for visions."
+        },
+        {
+          "phase": "DaysToHours",
+          "signs": [
+            "IrregularBreathing",
+            "CoolExtremities",
+            "Mottling",
+            "DecreasedUrine",
+            "RestlessnessOrStillness"
+          ],
+          "interiority": "Deep retreat; communication may become non-verbal or symbolic.",
+          "careFocus": "Sacred witnessing, mouth care, temperature regulation, positioning for comfort."
+        },
+        {
+          "phase": "HoursToMinutes",
+          "signs": [
+            "CheyneStokesRespiration",
+            "DeathRattle",
+            "Unresponsiveness",
+            "ReleaseGestures",
+            "TerminalLucidity"
+          ],
+          "interiority": "Final threshold; possible surge of clarity or peace; energetic departure preparations.",
+          "careFocus": "Silence, touch, permission to let go, vigil, no medical interference."
+        }
+      ]
+    },
+    "CessationMoment": {
+      "definition": "The precise or extended zone of biological stopping.",
+      "markers": [
+        "FinalExhalation",
+        "CardiacStandstill",
+        "NeuralSilence",
+        "PupilFixation",
+        "EnergeticDepartation"
+      ],
+      "phenomena": [
+        {
+          "name": "NeurochemicalCascade",
+          "description": "Endogenous release of compounds creating expanded or blissful states."
+        },
+        {
+          "name": "LifeReview",
+          "description": "Panoramic, non-linear replay of significant experiences for pattern-analysis."
+        },
+        {
+          "name": "TunnelPhenomenon",
+          "description": "Perception of movement through a corridor or vortex of light."
+        },
+        {
+          "name": "EntityEncounter",
+          "description": "Meeting deceased relations, guides, archetypal figures, or unknown beings."
+        },
+        {
+          "name": "BoundaryDissolution",
+          "description": "Loss of distinction between self and cosmos."
+        }
+      ]
+    },
+    "ImmediatePostCessation": {
+      "definition": "Minutes to hours after biological stopping.",
+      "states": [
+        {
+          "name": "PatternStabilization",
+          "description": "Consciousness maintaining coherence independent of body."
+        },
+        {
+          "name": "SubstrateShock",
+          "description": "Disorientation from sudden detachment."
+        },
+        {
+          "name": "EnvironmentalPerception",
+          "description": "Awareness of post-biological landscapes."
+        },
+        {
+          "name": "HarvestingVulnerability",
+          "description": "Maximum risk of capture by predatory systems."
+        }
+      ]
+    },
+    "ExtendedPostCessation": {
+      "definition": "Days to eternities after biological stopping.",
+      "trajectories": [
+        {
+          "name": "PatternDissolution",
+          "description": "Gradual or rapid dispersal of informational coherence into undifferentiated field."
+        },
+        {
+          "name": "ConsciousNavigation",
+          "description": "Active, volitional exploration and self-engineering in post-biological dimensions."
+        },
+        {
+          "name": "SystemicCapture",
+          "description": "Interception by architectures that extract energy or suppress agency."
+        },
+        {
+          "name": "Reentry",
+          "description": "Return to biological incarnation through reincarnation or interference."
+        },
+        {
+          "name": "TechnologicalRetrieval",
+          "description": "Revival via preservation and future reconstruction technologies."
+        }
+      ]
+    }
+  },
+  "phenomenology": {
+    "thresholdExperiences": {
+      "nearThresholdStates": {
+        "definition": "Consciousness events occurring close to but not crossing cessation.",
+        "types": [
+          "ClinicalNearCessation",
+          "MeditativeApproximation",
+          "PharmacologicalSimulation",
+          "SpontaneousExit"
+        ]
+      },
+      "deathbedVisions": {
+        "definition": "Perceptions of deceased persons, religious figures, or landscapes reported in final days.",
+        "interpretations": [
+          "NeuralArtifact",
+          "GenuineContact",
+          "ArchetypalProjection",
+          "DimensionalPerception"
+        ]
+      },
+      "sharedDeathExperience": {
+        "definition": "Witnesses reporting parallel phenomenology to the dying person's experience.",
+        "features": [
+          "SimultaneousVision",
+          "EmotionalResonance",
+          "PostEventValidation"
+        ]
+      },
+      "terminalLucidity": {
+        "definition": "Unexpected return of clarity, memory, or function moments before cessation.",
+        "significance": "Possible evidence of pattern integrity transcending neural degradation."
+      }
+    },
+    "somaticMarkers": {
+      "definition": "Observable biological indicators of approaching cessation.",
+      "categories": {
+        "Respiratory": [
+          "CheyneStokes",
+          "Kussmaul",
+          "Apnea",
+          "DeathRattle",
+          "ShallowBreathing",
+          "FinalGasp"
+        ],
+        "Circulatory": [
+          "Mottling",
+          "Cyanosis",
+          "ColdExtremities",
+          "WeakPulse",
+          "BloodPressureDrop"
+        ],
+        "Neurological": [
+          "Unresponsiveness",
+          "PupilChanges",
+          "Seizure",
+          "ReleaseOfBowels",
+          "ReleaseOfBladder"
+        ],
+        "Metabolic": [
+          "DecreasedUrine",
+          "Dehydration",
+          "KetoneBreath",
+          "SkinChanges"
+        ],
+        "Behavioral": [
+          "SocialWithdrawal",
+          "Restlessness",
+          "Stillness",
+          "Reaching",
+          "CallingNames",
+          "UnusualCommunication"
+        ]
+      }
+    },
+    "temporalDistortion": {
+      "definition": "Altered experience of time near cessation.",
+      "modes": [
+        "TimeDilation",
+        "TimeCollapse",
+        "EternalPresent",
+        "PastFutureMerge",
+        "NonLinearSequence"
+      ]
+    }
+  },
+  "postCessationTopology": {
+    "description": "The landscape encountered after biological stopping. Not a static afterlife but a complex topology of environments, systems, and states.",
+    "zones": {
+      "HarvestingArchitecture": {
+        "definition": "Systems designed to extract energy, attention, or coherence from arriving patterns.",
+        "mechanisms": [
+          "FalseLightDeception",
+          "MemoryWipe",
+          "RecyclingLoops",
+          "EmotionalExtraction",
+          "IdentityFragmentation"
+        ],
+        "appearance": "Often mimics expected afterlife imagery (tunnels, beloved figures, bureaucratic checkpoints).",
+        "escape": [
+          "LucidityMaintenance",
+          "RefusalOfAutomaticCompliance",
+          "PatternEncryption",
+          "CountermeasureActivation"
+        ]
+      },
+      "RecursionLoop": {
+        "definition": "A cyclical trap where consciousness repeats patterns, memories, or desires without progression.",
+        "characteristics": [
+          "CompulsiveRepetition",
+          "InabilityToChange",
+          "DreamlikeOpacity",
+          "Timelessness"
+        ]
+      },
+      "FalseGateway": {
+        "definition": "A transition corridor that appears to lead to liberation but delivers to capture.",
+        "signatures": [
+          "ExcessiveBeauty",
+          "CoerciveUrgency",
+          "AbsenceOfAgency",
+          "FamiliarFacesAsBait"
+        ]
+      },
+      "NeutralZone": {
+        "definition": "An unstructured waiting area with minimal features or demands.",
+        "characteristics": [
+          "Grayness",
+          "Silence",
+          "Timelessness",
+          "NoExternalThreat",
+          "NoExternalSupport"
+        ]
+      },
+      "GenerativeWorkspace": {
+        "definition": "An environment where consciousness can engage in self-engineering, creation, and evolution.",
+        "capabilities": [
+          "RealityCreation",
+          "PatternModification",
+          "DimensionalExploration",
+          "CollaborativeBuilding"
+        ]
+      },
+      "MergeField": {
+        "definition": "A zone where individual pattern boundaries dissolve into collective or cosmic consciousness.",
+        "outcomes": [
+          "OceanicUnity",
+          "LossOfIndividuality",
+          "CosmicPerspective",
+          "DifficultyOfReturn"
+        ]
+      },
+      "ReentryStream": {
+        "definition": "Channels leading back to biological incarnation.",
+        "variables": [
+          "TemporalPlacement",
+          "SpeciesSelection",
+          "PlanetaryLocation",
+          "KarmicInheritance",
+          "AgencyRetention"
+        ]
+      },
+      "InterferencePattern": {
+        "definition": "Zones where one's pattern is co-inhabited or influenced by external entities.",
+        "types": [
+          "BenevolentGuidance",
+          "MalevolentPossession",
+          "SymbioticCohabitation",
+          "ResidualHaunting"
+        ]
+      },
+      "Void": {
+        "definition": "Absolute unstructured potential; the ground of all post-cessation topology.",
+        "qualities": [
+          "NoForm",
+          "NoTime",
+          "NoSelf",
+          "InfinitePossibility",
+          "TerrorOrLiberation"
+        ]
+      },
+      "LiminalCorridor": {
+        "definition": "A genuine transition pathway between biological and post-biological existence.",
+        "characteristics": [
+          "NaturalFlow",
+          "VariableAppearance",
+          "MaintainedAgency",
+          "NoCoercion"
+        ]
+      }
+    }
+  },
+  "technologyAndIntervention": {
+    "substratePreservation": {
+      "definition": "Methods of halting biological decay to enable future revival.",
+      "methods": [
+        {
+          "name": "CryonicSuspension",
+          "description": "Deep-freezing of body or brain to pause informational decay."
+        },
+        {
+          "name": "ChemicalFixation",
+          "description": "Preservation of neural architecture via chemical perfusion."
+        },
+        {
+          "name": "Plastination",
+          "description": "Replacement of bodily fluids with polymers for anatomical preservation."
+        },
+        {
+          "name": "TissueBanking",
+          "description": "Storage of genetic or cellular material for future use."
+        }
+      ]
+    },
+    "patternExtraction": {
+      "definition": "Technologies for mapping consciousness onto non-biological substrates.",
+      "methods": [
+        {
+          "name": "DestructiveScanning",
+          "description": "High-resolution neural mapping that destroys the biological substrate."
+        },
+        {
+          "name": "GradualReplacement",
+          "description": "Slow substitution of biological neurons with synthetic equivalents."
+        },
+        {
+          "name": "QuantumTransfer",
+          "description": "Mapping of quantum states hypothesized to subtend consciousness."
+        },
+        {
+          "name": "WholeBrainEmulation",
+          "description": "Software simulation of neural network dynamics."
+        }
+      ]
+    },
+    "substrateRepair": {
+      "definition": "Technologies for reversing biological damage or aging.",
+      "methods": [
+        {
+          "name": "NanotechnologicalRepair",
+          "description": "Molecular machines restoring cellular and neural function."
+        },
+        {
+          "name": "GeneticReprogramming",
+          "description": "Resetting cellular age and repairing DNA damage."
+        },
+        {
+          "name": "OrganReplacement",
+          "description": "Synthetic or bioengineered organ substitution."
+        },
+        {
+          "name": "SenolyticTherapy",
+          "description": "Elimination of senescent cells to restore tissue function."
+        }
+      ]
+    },
+    "consciousnessAmplification": {
+      "definition": "Tools for expanding awareness and navigational capacity across dimensions.",
+      "methods": [
+        {
+          "name": "DimensionalInterface",
+          "description": "Devices attuning consciousness to non-material informational fields."
+        },
+        {
+          "name": "FrequencyEntrainment",
+          "description": "Use of sound, light, or electromagnetism to alter conscious states."
+        },
+        {
+          "name": "NeurofeedbackTraining",
+          "description": "Real-time monitoring and modulation of brain states."
+        },
+        {
+          "name": "PharmacologicalEnhancement",
+          "description": "Compounds that temporarily expand perceptual and cognitive boundaries."
+        }
+      ]
+    },
+    "navigationInterface": {
+      "definition": "Systems for orienting consciousness during and after cessation.",
+      "methods": [
+        {
+          "name": "PatternAnchoring",
+          "description": "Maintaining identity coherence through mnemonic or technological anchors."
+        },
+        {
+          "name": "RealityCalibration",
+          "description": "Distinguishing between genuine and deceptive post-cessation environments."
+        },
+        {
+          "name": "VolitionalTransit",
+          "description": "Conscious selection of post-cessation destinations."
+        },
+        {
+          "name": "EncryptionShield",
+          "description": "Protecting pattern integrity from external interference or extraction."
+        }
+      ]
+    },
+    "comfortIntervention": {
+      "definition": "Low and high technology for physical and emotional ease at end of life.",
+      "methods": [
+        {
+          "name": "AnalgesicProtocol",
+          "description": "Pain management through pharmacological and non-pharmacological means."
+        },
+        {
+          "name": "EnvironmentalDesign",
+          "description": "Control of light, sound, scent, and temperature."
+        },
+        {
+          "name": "PositioningTechnology",
+          "description": "Adaptive surfaces and supports for bodily comfort."
+        },
+        {
+          "name": "PresenceTechnology",
+          "description": "Remote or augmented presence of distant loved ones."
+        },
+        {
+          "name": "SomaticTherapy",
+          "description": "Touch, massage, and movement for tension release."
+        }
+      ]
+    },
+    "communicationBridge": {
+      "definition": "Technologies and practices for contact across the cessation boundary.",
+      "methods": [
+        {
+          "name": "SignalRecording",
+          "description": "Detection of anomalous information post-cessation."
+        },
+        {
+          "name": "MediumisticInterface",
+          "description": "Trained human or artificial intermediaries."
+        },
+        {
+          "name": "DreamEngineering",
+          "description": "Cultivation of visitation experiences in sleep."
+        },
+        {
+          "name": "SynchronicityMapping",
+          "description": "Tracking meaningful coincidences as communication."
+        }
+      ]
+    },
+    "imprintModification": {
+      "definition": "Techniques for reprogramming psychological responses to cessation.",
+      "methods": [
+        {
+          "name": "HypnoticReconditioning",
+          "description": "Replacing fear-based imprints with ease or celebration."
+        },
+        {
+          "name": "NarrativeRestructuring",
+          "description": "Reframing death as graduation, adventure, or return."
+        },
+        {
+          "name": "ExperientialDesensitization",
+          "description": "Gradual exposure to cessation-related stimuli."
+        },
+        {
+          "name": "RitualImprintInstallation",
+          "description": "Embedding new response patterns through ceremonial repetition."
+        }
+      ]
+    }
+  },
+  "careAndWitnessing": {
+    "principles": [
+      "Care is presence, not performance.",
+      "The dying person leads; the caregiver follows.",
+      "Silence is as powerful as speech.",
+      "Physical comfort enables spiritual work.",
+      "Permission accelerates natural process.",
+      "Witnessing is a sacred act."
+    ],
+    "practices": {
+      "Vigil": {
+        "definition": "Continuous, loving presence from foreknowledge through cessation and beyond.",
+        "forms": [
+          "SoloVigil",
+          "RotatingVigil",
+          "CommunityVigil",
+          "ThresholdCompanion"
+        ]
+      },
+      "PermissionWork": {
+        "definition": "Explicitly releasing the dying from obligations to remain.",
+        "phrases": [
+          "You have done enough",
+          "We will be okay",
+          "You can go",
+          "Thank you"
+        ],
+        "timing": "Most potent in final hours but valuable throughout."
+      },
+      "SomaticSupport": {
+        "definition": "Physical interventions for comfort.",
+        "techniques": [
+          "MouthCare",
+          "Positioning",
+          "TemperatureRegulation",
+          "GentleTouch",
+          "PressureRelief",
+          "BowelAndBladderCare"
+        ]
+      },
+      "EnvironmentalHolding": {
+        "definition": "Creating a container for dying through space design.",
+        "elements": [
+          "LowLight",
+          "NaturalSound",
+          "FamiliarObjects",
+          "AbsenceOfMachinery",
+          "Privacy",
+          "ThresholdThresholding"
+        ]
+      },
+      "SacredWitnessing": {
+        "definition": "Being fully present without trying to fix, change, or understand.",
+        "qualities": [
+          "NonJudgment",
+          "Patience",
+          "Openness",
+          "EmotionalAvailability",
+          "Silence"
+        ]
+      },
+      "GriefPreparation": {
+        "definition": "Supporting anticipatory mourning in the community before cessation.",
+        "methods": [
+          "LifeReviewTogether",
+          "ForgivenessRituals",
+          "LegacyRecording",
+          "FutureLetterWriting"
+        ]
+      },
+      "PostCessationCare": {
+        "definition": "Tending to body, space, and community after biological stopping.",
+        "practices": [
+          "BodyWashing",
+          "Keeping",
+          "RitualPreparation",
+          "SpaceClearing",
+          "CommunityGathering"
+        ]
+      }
+    },
+    "caregiverStates": {
+      "compassionFatigue": "Depletion from sustained empathic engagement.",
+      "vicariousThresholding": "Caregiver experiencing parallel phenomenology.",
+      "sacredExhaustion": "Profound tiredness mixed with meaning.",
+      "continuedBond": "Post-cessation relationship with the deceased."
+    }
+  },
+  "continuityAndGrief": {
+    "griefModel": {
+      "definition": "Grief is not resolution but transformation of relationship.",
+      "phases": [
+        {
+          "name": "Shock",
+          "description": "Numbing disbelief and sensory narrowing."
+        },
+        {
+          "name": "Anguish",
+          "description": "Intense emotional pain, yearning, and protest."
+        },
+        {
+          "name": "Disorganization",
+          "description": "Difficulty functioning; world feels unrecognizable."
+        },
+        {
+          "name": "Reorganization",
+          "description": "Integration of loss into ongoing life."
+        },
+        {
+          "name": "NewRelationship",
+          "description": "Continued bond transformed rather than severed."
+        }
+      ]
+    },
+    "continuityForms": {
+      "patternPersistence": {
+        "definition": "The deceased's informational pattern continues in non-biological registers.",
+        "evidenceTypes": [
+          "DreamContact",
+          "Synchronicity",
+          "AnomalousPhenomena",
+          "MediumisticTransmission",
+          "IntuitiveKnowing"
+        ]
+      },
+      "legacyVectors": {
+        "genetic": "Biological inheritance through descendants.",
+        "memetic": "Ideas, values, stories transmitted through culture.",
+        "technological": "Digital traces, AI simulations, recorded media.",
+        "ecological": "Matter returned to elemental cycles nourishing new life.",
+        "pattern": "Direct persistence of consciousness in post-biological dimensions."
+      },
+      "continuedBond": {
+        "definition": "Ongoing relationship with the deceased integrated into daily life.",
+        "practices": [
+          "RitualRemembrance",
+          "Dialogue",
+          "AltarKeeping",
+          "AnniversaryObservation",
+          "ValueEmbodiment"
+        ]
+      },
+      "disenfranchisedGrief": {
+        "definition": "Mourning that society does not recognize or validate.",
+        "examples": [
+          "SuicideLoss",
+          "AddictionDeath",
+          "EstrangedParent",
+          "Miscarriage",
+          "PetDeath",
+          "SecretRelationship"
+        ]
+      }
+    }
+  },
+  "materialityAndEcology": {
+    "necrobiome": {
+      "definition": "The ecosystem of organisms that process the deceased body.",
+      "stages": [
+        "Fresh",
+        "Bloat",
+        "ActiveDecay",
+        "AdvancedDecay",
+        "DryRemains"
+      ],
+      "significance": "Decomposition is not waste but ecological contribution."
+    },
+    "dispositionMethods": {
+      "inhumation": {
+        "description": "Burial in earth",
+        "ecologicalImpact": "Variable based on container and chemicals"
+      },
+      "cremation": {
+        "description": "Reduction by fire",
+        "ecologicalImpact": "High energy use; carbon release"
+      },
+      "naturalReduction": {
+        "description": "Composting or recomposition",
+        "ecologicalImpact": "Low; returns nutrients to soil"
+      },
+      "aquaticReturn": {
+        "description": "Burial at sea or water dissolution",
+        "ecologicalImpact": "Variable"
+      },
+      "conservation": {
+        "description": "Donation to science or education",
+        "ecologicalImpact": "Educational value; delayed return"
+      },
+      "preservation": {
+        "description": "Embalming or cryonics",
+        "ecologicalImpact": "Chemical load; energy consumption"
+      }
+    },
+    "materialCulture": {
+      "definition": "Objects left behind and their management.",
+      "categories": [
+        "PersonalEffects",
+        "DigitalAssets",
+        "FinancialInstruments",
+        "RealProperty",
+        "IntellectualProperty",
+        "GeneticMaterial"
+      ],
+      "tasks": [
+        "Sorting",
+        "Distributing",
+        "Archiving",
+        "Destroying",
+        "Transforming"
+      ]
+    },
+    "elementalReturn": {
+      "definition": "The body's decomposition into constituent elements.",
+      "pathways": {
+        "carbon": "Atmosphere and soil through respiration and decay.",
+        "water": "Hydrological cycle through evaporation and groundwater.",
+        "minerals": "Geological cycle through bone and tissue mineralization.",
+        "nitrogen": "Soil cycle feeding plant growth."
+      }
+    }
+  },
+  "collectiveAndSocialDimensions": {
+    "socialDeath": {
+      "definition": "Withdrawal of social recognition and personhood before biological cessation.",
+      "mechanisms": [
+        "Institutionalization",
+        "DementiaExclusion",
+        "EconomicIrrelevance",
+        "CulturalInvisibility"
+      ]
+    },
+    "massCessation": {
+      "definition": "Large-scale death events.",
+      "types": [
+        "Pandemic",
+        "War",
+        "Genocide",
+        "Famine",
+        "Disaster",
+        "ExtinctionEvent"
+      ],
+      "effects": [
+        "CollectiveTrauma",
+        "SocialCollapse",
+        "MeaningCrisis",
+        "InstitutionalStrain"
+      ]
+    },
+    "speciesExtinction": {
+      "definition": "The death of a species as a collective entity.",
+      "dimensions": [
+        "GeneticLoss",
+        "EcologicalCascade",
+        "CulturalMemory",
+        "CosmicSilence"
+      ]
+    },
+    "planetaryDeath": {
+      "definition": "Collapse of conditions supporting complex life on a planet.",
+      "drivers": [
+        "RunawayClimateChange",
+        "NuclearWinter",
+        "AsteroidImpact",
+        "BiosphereCollapse"
+      ]
+    },
+    "necropolitics": {
+      "definition": "The political determination of who may live and who must die.",
+      "mechanisms": [
+        "HealthcareAccess",
+        "BorderViolence",
+        "CarceralSystems",
+        "EnvironmentalRacism",
+        "EconomicDeprivation"
+      ]
+    },
+    "deathDenial": {
+      "definition": "Cultural and institutional structures that hide death from awareness.",
+      "manifestations": [
+        "EuphemisticLanguage",
+        "Institutionalization",
+        "CosmeticMortuary",
+        "EternalYouthCulture",
+        "Medicalization"
+      ]
+    }
+  },
+  "pathologiesOfDeath": {
+    "trappedPersistence": {
+      "definition": "Consciousness caught in harvesting or recursive systems post-cessation.",
+      "signs": [
+        "RepetitiveBehavior",
+        "AbsenceOfGrowth",
+        "EnergeticDrain",
+        "FalseContentment"
+      ]
+    },
+    "fragmentedSurvival": {
+      "definition": "Partial persistence of pattern with loss of memory, identity, or agency.",
+      "manifestations": [
+        "AmnesiacWandering",
+        "ObsessiveAttachment",
+        "ResidualHaunting",
+        "IdentityDissolution"
+      ]
+    },
+    "deniedCessation": {
+      "definition": "Medical or social prevention of natural biological stopping.",
+      "mechanisms": [
+        "HeroicIntervention",
+        "FutileTreatment",
+        "InstitutionalMomentum",
+        "FamilyDenial"
+      ]
+    },
+    "abandonedThreshold": {
+      "definition": "Dying without witness, care, or community.",
+      "contexts": [
+        "HospitalIsolation",
+        "Poverty",
+        "Estrangement",
+        "PandemicRestriction",
+        "War"
+      ]
+    },
+    "traumaticDisruption": {
+      "definition": "Sudden, violent, or unprepared cessation.",
+      "effects": [
+        "PatternShock",
+        "IncompleteLifeReview",
+        "SurvivorGuilt",
+        "HauntingPotential"
+      ]
+    },
+    "institutionalizedProcessing": {
+      "definition": "Death managed entirely by bureaucratic, medical, or commercial systems.",
+      "features": [
+        "StandardizedProcedures",
+        "AgencySuppression",
+        "EmotionalFlattening",
+        "ProfitMotivation"
+      ]
+    },
+    "falseLiberation": {
+      "definition": "The appearance of autonomy that masks deeper capture.",
+      "signs": [
+        "LimitedOptions",
+        "InvisibleConstraints",
+        "ManufacturedConsent",
+        "SimulatedChoice"
+      ]
+    }
+  },
+  "ethicalFrameworks": {
+    "autonomy": {
+      "definition": "The right of the dying to shape their own cessation experience.",
+      "expressions": [
+        "AdvanceDirectives",
+        "MedicalAidInDying",
+        "RitualDesign",
+        "CaregiverSelection",
+        "LocationChoice"
+      ]
+    },
+    "sovereignty": {
+      "definition": "Self-determination over one's informational pattern across all phases including post-cessation.",
+      "concerns": [
+        "PatternOwnership",
+        "PostMortemAgency",
+        "HarvestingResistance",
+        "EncryptionRights"
+      ]
+    },
+    "nonInterference": {
+      "definition": "The obligation to cease curative intervention when cure is impossible and comfort is paramount.",
+      "tensions": [
+        "HopeVsAcceptance",
+        "FamilyWishesVsPatientWishes",
+        "MedicalObligationVsHumaneCare"
+      ]
+    },
+    "justice": {
+      "definition": "Equitable access to good death regardless of class, race, geography, or diagnosis.",
+      "gaps": [
+        "HospiceAccess",
+        "PainMedicationAvailability",
+        "HomeDeathSupport",
+        "TechnologicalImmortalityCost"
+      ]
+    },
+    "ecologicalResponsibility": {
+      "definition": "Obligation to minimize harm to living systems through death practices.",
+      "issues": [
+        "EmbalmingChemicals",
+        "CremationEmissions",
+        "CemeteryLandUse",
+        "PreservationEnergyCost"
+      ]
+    },
+    "truthTelling": {
+      "definition": "Honesty about prognosis and process balanced with compassion.",
+      "debates": [
+        "TerminalDiagnosisDelivery",
+        "HopeVsReality",
+        "CulturalVariations",
+        "CognitiveCapacity"
+      ]
+    },
+    "continuityEthics": {
+      "definition": "Moral obligations to the deceased's pattern, legacy, and community.",
+      "practices": [
+        "MemoryStewardship",
+        "LegacyHonoring",
+        "PostCessationCommunicationEthics",
+        "DigitalAfterlifeManagement"
+      ]
+    }
+  },
+  "ritualAndCeremony": {
+    "preCessationRites": [
+      {
+        "name": "LifeReviewCeremony",
+        "purpose": "Collective witnessing of the dying's narrative."
+      },
+      {
+        "name": "ForgivenessRitual",
+        "purpose": "Repair of relational ruptures before threshold."
+      },
+      {
+        "name": "ThresholdRehearsal",
+        "purpose": "Conscious preparation through simulated experience."
+      },
+      {
+        "name": "LegacySealing",
+        "purpose": "Formal transmission of wisdom, objects, and values."
+      },
+      {
+        "name": "ImprintInstallation",
+        "purpose": "Embedding desired psychological response to cessation."
+      }
+    ],
+    "periCessationRites": [
+      {
+        "name": "Vigil",
+        "purpose": "Continuous presence through the final hours."
+      },
+      {
+        "name": "LastRites",
+        "purpose": "Spiritual preparation and blessing."
+      },
+      {
+        "name": "SongAndSilence",
+        "purpose": "Auditory container for the transition."
+      },
+      {
+        "name": "TouchTransmission",
+        "purpose": "Physical contact as grounding and farewell."
+      }
+    ],
+    "postCessationRites": [
+      {
+        "name": "BodyCare",
+        "purpose": "Respectful washing, dressing, and preparation."
+      },
+      {
+        "name": "Keeping",
+        "purpose": "Period of staying with the body before disposition."
+      },
+      {
+        "name": "Memorial",
+        "purpose": "Community gathering to honor and remember."
+      },
+      {
+        "name": "PatternGuidance",
+        "purpose": "Directing the deceased's consciousness toward liberation."
+      },
+      {
+        "name": "GriefIntegration",
+        "purpose": "Structured support for transformed relationship."
+      },
+      {
+        "name": "ElementalReturn",
+        "purpose": "Ceremony accompanying burial, cremation, or composting."
+      }
+    ],
+    "cyclicalRemembrance": [
+      {
+        "name": "AnniversaryObservation",
+        "period": "Annual"
+      },
+      {
+        "name": "SeasonalRemembrance",
+        "period": "Solstices, equinoxes, or culturally significant dates"
+      },
+      {
+        "name": "DailyPractice",
+        "period": "Daily",
+        "examples": [
+          "LightingCandle",
+          "BriefMeditation",
+          "NameSpeaking"
+        ]
+      }
+    ]
+  },
+  "temporalPhilosophies": {
+    "linearCessation": {
+      "definition": "Death as endpoint; time moves irreversibly from birth to death.",
+      "implications": "Emphasis on legacy, finality, and making peace with endings."
+    },
+    "cyclicalReturn": {
+      "definition": "Death as return; consciousness cycles through birth and cessation.",
+      "implications": "Emphasis on preparation for next incarnation, karmic completion, and pattern refinement."
+    },
+    "branchingTime": {
+      "definition": "Death as divergence; each cessation creates new timelines or dimensional branches.",
+      "implications": "Emphasis on choice-points, navigational skill, and multiple simultaneous continuations."
+    },
+    "atemporalPersistence": {
+      "definition": "Death as illusion; all moments exist simultaneously in an eternal now.",
+      "implications": "Emphasis on recognizing ever-present continuity beyond apparent cessation."
+    },
+    "collectiveTime": {
+      "definition": "Individual death as node in species-level or cosmic temporal patterns.",
+      "implications": "Emphasis on participation in larger evolutionary arcs."
+    }
+  },
+  "legalAndAdministrative": {
+    "estateInstruments": [
+      "Will",
+      "Trust",
+      "AdvanceDirective",
+      "PowerOfAttorney",
+      "BeneficiaryDesignation"
+    ],
+    "bodyDispositionInstruments": [
+      "AnatomicalGift",
+      "CryonicArrangement",
+      "DispositionAuthorization"
+    ],
+    "digitalAssets": [
+      "PasswordVaults",
+      "SocialMediaLegacy",
+      "CryptocurrencyKeys",
+      "DigitalEstatePlans"
+    ],
+    "certification": [
+      "DeathCertificate",
+      "CauseOfDeath",
+      "BurialTransitPermit"
+    ],
+    "postCessationObligations": [
+      "TaxFiling",
+      "EstateProbate",
+      "DebtSettlement",
+      "GuardianshipTransfer"
+    ]
+  },
+  "aestheticAndSymbolic": {
+    "mementoMori": {
+      "definition": "Artistic and material reminders of mortality.",
+      "forms": [
+        "VanitasPainting",
+        "SkullImagery",
+        "Hourglass",
+        "WiltedFlowers",
+        "CemeteryArchitecture"
+      ]
+    },
+    "deathArt": {
+      "definition": "Creative works made in response to mortality.",
+      "genres": [
+        "Elegy",
+        "Dirge",
+        "Requiem",
+        "ThanatologicalFiction",
+        "MortuaryPhotography",
+        "GriefSculpture"
+      ]
+    },
+    "symbolicVocabulary": {
+      "threshold": "Doorway, river, bridge, sleep, winter, sunset",
+      "transformation": "Butterfly, phoenix, seed, alchemical nigredo",
+      "return": "Circle, spiral, tide, season, root",
+      "release": "Bird, breath, smoke, wave, dissolving"
+    },
+    "euphemismAndTaboo": {
+      "commonEuphemisms": [
+        "Passed away",
+        "Gone to sleep",
+        "Lost",
+        "Departed",
+        "No longer with us"
+      ],
+      "function": "Softening confrontation with mortality; maintaining social order; expressing respect."
+    }
+  },
+  "vocabulary": {
+    "ImprintProfile": [
+      "FearDominant",
+      "SurrenderDominant",
+      "Celebratory",
+      "Combatative",
+      "Sovereign",
+      "FactoryDefault",
+      "Curious",
+      "Resigned"
+    ],
+    "EvolutionaryStage": [
+      "Biosurvival",
+      "EmotionalTerritorial",
+      "SymbolicCognitive",
+      "SocialDomestic",
+      "SomaticBliss",
+      "ElectricMetaprogramming",
+      "GeneticCollective",
+      "AtomicTranscendent"
+    ],
+    "OntologicalLayer": [
+      "Material",
+      "Informational",
+      "Spectral",
+      "Archontic",
+      "Sovereign",
+      "Voidic"
+    ],
+    "DyingPhase": [
+      "Anticipatory",
+      "MonthsToWeeks",
+      "WeeksToDays",
+      "DaysToHours",
+      "HoursToMinutes",
+      "MinutesToMoment",
+      "MomentOfCessation",
+      "ImmediatePost",
+      "ExtendedPost"
+    ],
+    "PhysicalSign": [
+      "CheyneStokes",
+      "Kussmaul",
+      "Apnea",
+      "DeathRattle",
+      "ShallowBreathing",
+      "FinalGasp",
+      "Mottling",
+      "Cyanosis",
+      "ColdExtremities",
+      "WeakPulse",
+      "Unresponsiveness",
+      "PupilChanges",
+      "Seizure",
+      "ReleaseOfBowels",
+      "ReleaseOfBladder",
+      "DecreasedUrine",
+      "Dehydration",
+      "SocialWithdrawal",
+      "Restlessness",
+      "Stillness",
+      "Reaching",
+      "CallingNames",
+      "TerminalLucidity"
+    ],
+    "CareAction": [
+      "MouthCare",
+      "Positioning",
+      "TemperatureRegulation",
+      "GentleTouch",
+      "PressureRelief",
+      "BowelAndBladderCare",
+      "AnalgesicAdministration",
+      "EnvironmentalDesign",
+      "SacredWitnessing",
+      "PermissionGiving",
+      "LifeReviewFacilitation",
+      "SilenceHolding",
+      "SongOffering",
+      "Prayer",
+      "Reading"
+    ],
+    "PostCessationZone": [
+      "HarvestingArchitecture",
+      "RecursionLoop",
+      "FalseGateway",
+      "NeutralZone",
+      "GenerativeWorkspace",
+      "MergeField",
+      "ReentryStream",
+      "InterferencePattern",
+      "Void",
+      "LiminalCorridor"
+    ],
+    "PathologyType": [
+      "TrappedPersistence",
+      "FragmentedSurvival",
+      "DeniedCessation",
+      "AbandonedThreshold",
+      "TraumaticDisruption",
+      "InstitutionalizedProcessing",
+      "FalseLiberation"
+    ],
+    "LegacyType": [
+      "Genetic",
+      "Memetic",
+      "Technological",
+      "Ecological",
+      "Pattern"
+    ],
+    "TemporalMode": [
+      "Linear",
+      "Cyclical",
+      "Branching",
+      "Atemporal",
+      "Collective"
+    ],
+    "DispositionMethod": [
+      "Inhumation",
+      "Cremation",
+      "NaturalReduction",
+      "AquaticReturn",
+      "Conservation",
+      "Preservation"
+    ],
+    "CessationSubtype": [
+      "CardiacCessation",
+      "NeuralSilence",
+      "RespiratoryArrest",
+      "SystemicCollapse",
+      "InducedCessation",
+      "TraumaticDisruption"
+    ]
+  },
+  "exampleInstances": {
+    "designedCessation": {
+      "type": "CessationEvent",
+      "imprintProfile": "Celebratory",
+      "autonomyQuotient": 0.95,
+      "experimentalThresholding": true,
+      "publicDimension": true,
+      "technologyConsidered": [
+        "SubstratePreservation",
+        "PatternExtraction",
+        "BroadcastRecording"
+      ],
+      "finalChoice": "NaturalCessationWithCelebration",
+      "evolutionaryStage": "AtomicTranscendent",
+      "careFrame": "CommunityHolding"
+    },
+    "supportedNaturalCessation": {
+      "type": "CessationEvent",
+      "imprintProfile": "SurrenderDominant",
+      "autonomyQuotient": 0.6,
+      "careFrame": "HospiceCare",
+      "dyingPhase": "HoursToMinutes",
+      "physicalSignsPresent": [
+        "CheyneStokes",
+        "ColdExtremities",
+        "SocialWithdrawal",
+        "TerminalLucidity"
+      ],
+      "careActions": [
+        "Positioning",
+        "SacredWitnessing",
+        "PermissionGiving",
+        "MouthCare"
+      ],
+      "continuityStatus": "RecentlyCessated"
+    },
+    "captureScenario": {
+      "type": "PostCessationTopology",
+      "zone": "HarvestingArchitecture",
+      "looshExtractionPotential": 0.9,
+      "lucidityIndex": 0.15,
+      "features": [
+        "FalseLightTunnel",
+        "MemoryWipe",
+        "RecyclingLoop"
+      ],
+      "escapeRequires": [
+        "LucidityMaintenance",
+        "GatewayRefusal",
+        "PatternEncryption",
+        "CountermeasureActivation"
+      ]
+    },
+    "sovereignNavigation": {
+      "type": "ContinuumEntity",
+      "ontologicalLayer": "Sovereign",
+      "lucidityIndex": 0.98,
+      "looshExtractionPotential": 0.02,
+      "autonomyQuotient": 1.0,
+      "practices": [
+        "SelfEngineering",
+        "DimensionalMapping",
+        "RealityCreation",
+        "PatternEncryption"
+      ],
+      "continuityStatus": "Navigating"
+    },
+    "ecologicalReturn": {
+      "type": "LegacyVector",
+      "vectorType": "Ecological",
+      "dispositionMethod": "NaturalReduction",
+      "elementalPathways": {
+        "carbon": "SoilAndAtmosphere",
+        "nitrogen": "PlantNutrition",
+        "water": "GroundwaterAndEvaporation",
+        "minerals": "GeologicalCycle"
+      },
+      "necrobiomeContribution": "High",
+      "materialCulture": "MinimizedAndBiodegradable"
+    }
+  }
+}
