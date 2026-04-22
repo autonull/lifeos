@@ -49,10 +49,11 @@ LifeOS allows you to "meet" your future self. By simulating a timeline, you can:
 ## Societal Implications
 
 ### 1. **Collective Well-Being**
-LifeOS is not just for individuals. The **Life2 ontology** (civilization-level schema) allows us to:
+The ontological frameworks allow us to:
 - Model the impact of individual choices on society (e.g., "What if everyone worked 4-day weeks?").
 - Simulate policy changes before implementation.
 - Explore collective futures (e.g., "What if we prioritized well-being over GDP?").
+- Track provenance and temporal context across generations.
 
 ### 2. **Empathy & Understanding**
 By simulating the lives of others, we can:

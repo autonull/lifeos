@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Modern Human Life Ontology",
+  "description": "A comprehensive schema describing the domains, entities, relationships, and attributes of contemporary human existence.",
+  "last_updated": "2026-04-21",
+
+  "domains": {
+    "identity": {
+      "description": "The sense of self and personal characteristics",
+      "entities": {
+        "person": {
+          "attributes": {
+            "name": { "type": "string", "required": true },
+            "birth_date": { "type": "date", "format": "ISO 8601" },
+            "gender_identity": { "type": "string", "enum": ["male", "female", "non-binary", "transgender", "other", "prefer_not_to_say"] },
+            "pronouns": { "type": "array", "items": { "type": "string" } },
+            "nationality": { "type": "string" },
+            "ethnicity": { "type": "array", "items": { "type": "string" } },
+            "languages": { "type": "array", "items": { "type": "string" } },
+            "personality_traits": { "type": "array", "items": { "type": "string" }, "examples": ["introverted", "conscientious", "open"] },
+            "values": { "type": "array", "items": { "type": "string" } },
+            "beliefs": { "type": "array", "items": { "type": "string" } },
+            "biography": { "type": "string" }
+          },
+          "relationships": {
+            "has_family": { "target": "family", "cardinality": "0..1" },
+            "has_career": { "target": "career", "cardinality": "0..*" },
+            "has_education": { "target": "education", "cardinality": "0..*" },
+            "has_health_profile": { "target": "health", "cardinality": "0..1" },
+            "has_social_network": { "target": "social", "cardinality": "0..1" },
+            "participates_in_culture": { "target": "culture", "cardinality": "0..*" },
+            "has_finances": { "target": "finance", "cardinality": "0..1" },
+            "has_legal_status": { "target": "legal", "cardinality": "0..1" },
+            "has_technology_profile": { "target": "technology", "cardinality": "0..1" },
+            "has_spirituality": { "target": "spirituality", "cardinality": "0..1" },
+            "has_environment": { "target": "environment", "cardinality": "0..1" },
+            "has_political_identity": { "target": "politics", "cardinality": "0..1" }
+          }
+        }
+      }
+    },
+
+    "family": {
+      "description": "Kinship, relationships, and domestic life",
+      "entities": {
+        "family_unit": {
+          "attributes": {
+            "type": { "type": "string", "enum": ["nuclear", "extended", "single-parent", "blended", "chosen", "polyamorous", "other"] },
+            "members": { "type": "array", "items": { "$ref": "#/domains/identity/entities/person" } },
+            "formation_date": { "type": "date" },
+            "status": { "type": "string", "enum": ["active", "separated", "dissolved"] }
+          }
+        },
+        "relationship": {
+          "attributes": {
+            "type": { "type": "string", "enum": ["parent", "child", "sibling", "partner", "spouse", "friend", "mentor", "colleague", "caregiver", "other"] },
+            "strength": { "type": "number", "min": 0, "max": 1 },
+            "start_date": { "type": "date" },
+            "end_date": { "type": "date", "nullable": true }
+          }
+        },
+        "household": {
+          "attributes": {
+            "dwelling": { "type": "string", "enum": ["house", "apartment", "shared", "mobile", "homeless", "institutional", "other"] },
+            "location": { "type": "object", "properties": { "city": "string", "country": "string", "coordinates": "geojson" } },
+            "size_sqm": { "type": "number" },
+            "occupants": { "type": "array", "items": { "$ref": "#/domains/identity/entities/person" } }
+          }
+        }
+      }
+    },
+
+    "career": {
+      "description": "Work, profession, and economic contribution",
+      "entities": {
+        "occupation": {
+          "attributes": {
+            "title": { "type": "string" },
+            "industry": { "type": "string" },
+            "sector": { "type": "string", "enum": ["private", "public", "nonprofit", "self-employed", "gig", "informal"] },
+            "employment_type": { "type": "string", "enum": ["full-time", "part-time", "contract", "freelance", "internship", "volunteer", "unemployed"] },
+            "skills_required": { "type": "array", "items": { "type": "string" } },
+            "income_range": { "type": "object", "properties": { "currency": "string", "min": "number", "max": "number" } },
+            "work_location": { "type": "string", "enum": ["remote", "hybrid", "on-site", "mobile"] },
+            "start_date": { "type": "date" },
+            "end_date": { "type": "date", "nullable": true },
+            "satisfaction": { "type": "number", "min": 0, "max": 10 }
+          }
+        },
+        "organization": {
+          "attributes": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["corporation", "startup", "government", "ngo", "cooperative", "sole_proprietorship"] },
+            "size": { "type": "string", "enum": ["micro", "small", "medium", "large", "enterprise"] },
+            "industry": { "type": "string" },
+            "location": { "type": "string" },
+            "mission": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "education": {
+      "description": "Learning, knowledge acquisition, and credentials",
+      "entities": {
+        "institution": {
+          "attributes": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["preschool", "primary", "secondary", "university", "vocational", "online_platform", "bootcamp", "self-directed"] },
+            "accreditation": { "type": "string" },
+            "location": { "type": "string" }
+          }
+        },
+        "qualification": {
+          "attributes": {
+            "degree": { "type": "string", "enum": ["none", "certificate", "diploma", "bachelor", "master", "doctorate", "professional"] },
+            "field_of_study": { "type": "string" },
+            "institution": { "type": "string" },
+            "completion_date": { "type": "date" },
+            "gpa": { "type": "number", "min": 0, "max": 4.0, "nullable": true },
+            "honors": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "skill": {
+          "attributes": {
+            "name": { "type": "string" },
+            "category": { "type": "string", "enum": ["technical", "soft", "creative", "physical", "cognitive", "social"] },
+            "proficiency": { "type": "string", "enum": ["beginner", "intermediate", "advanced", "expert"] },
+            "verified": { "type": "boolean" }
+          }
+        }
+      }
+    },
+
+    "health": {
+      "description": "Physical, mental, and emotional wellbeing",
+      "entities": {
+        "health_profile": {
+          "attributes": {
+            "blood_type": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "unknown"] },
+            "height_cm": { "type": "number" },
+            "weight_kg": { "type": "number" },
+            "bmi": { "type": "number" },
+            "chronic_conditions": { "type": "array", "items": { "type": "string" } },
+            "allergies": { "type": "array", "items": { "type": "string" } },
+            "medications": { "type": "array", "items": { "type": "string" } },
+            "disabilities": { "type": "array", "items": { "type": "string" } },
+            "immunizations": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "mental_health": {
+          "attributes": {
+            "diagnoses": { "type": "array", "items": { "type": "string" } },
+            "therapy_status": { "type": "string", "enum": ["none", "ongoing", "as_needed", "completed"] },
+            "stress_level": { "type": "number", "min": 0, "max": 10 },
+            "sleep_quality": { "type": "string", "enum": ["poor", "fair", "good", "excellent"] },
+            "substance_use": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "healthcare_provider": {
+          "attributes": {
+            "name": { "type": "string" },
+            "specialty": { "type": "string" },
+            "type": { "type": "string", "enum": ["primary", "specialist", "mental_health", "alternative", "emergency"] },
+            "insurance_accepted": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+
+    "social": {
+      "description": "Community, belonging, and interpersonal networks",
+      "entities": {
+        "social_network": {
+          "attributes": {
+            "platforms": { "type": "array", "items": { "type": "string" } },
+            "network_size": { "type": "integer" },
+            "close_contacts": { "type": "integer" },
+            "community_memberships": { "type": "array", "items": { "type": "string" } },
+            "social_capital": { "type": "string", "enum": ["low", "medium", "high"] }
+          }
+        },
+        "community": {
+          "attributes": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["geographic", "interest-based", "identity-based", "professional", "religious", "support", "hobby"] },
+            "size": { "type": "integer" },
+            "activity_level": { "type": "string", "enum": ["dormant", "low", "moderate", "high"] },
+            "online_presence": { "type": "boolean" }
+          }
+        }
+      }
+    },
+
+    "culture": {
+      "description": "Arts, media, entertainment, and cultural consumption",
+      "entities": {
+        "media_consumption": {
+          "attributes": {
+            "genres": { "type": "array", "items": { "type": "string" } },
+            "preferred_formats": { "type": "array", "items": { "type": "string", "enum": ["streaming", "theater", "live", "print", "digital", "podcast", "gaming"] } },
+            "favorite_creators": { "type": "array", "items": { "type": "string" } },
+            "annual_media_spend": { "type": "number" }
+          }
+        },
+        "creative_practice": {
+          "attributes": {
+            "medium": { "type": "string", "enum": ["visual_art", "music", "writing", "performance", "craft", "digital", "culinary", "other"] },
+            "skill_level": { "type": "string", "enum": ["hobbyist", "amateur", "semi-professional", "professional"] },
+            "public_output": { "type": "boolean" }
+          }
+        },
+        "cultural_identity": {
+          "attributes": {
+            "traditions_observed": { "type": "array", "items": { "type": "string" } },
+            "cuisine_preferences": { "type": "array", "items": { "type": "string" } },
+            "fashion_style": { "type": "string" },
+            "cultural_heritage": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+
+    "finance": {
+      "description": "Economic resources, assets, and financial behavior",
+      "entities": {
+        "financial_profile": {
+          "attributes": {
+            "income_sources": { "type": "array", "items": { "type": "string" } },
+            "annual_income": { "type": "number" },
+            "currency": { "type": "string" },
+            "debt": { "type": "array", "items": { "type": "object", "properties": { "type": "string", "amount": "number" } } },
+            "assets": { "type": "array", "items": { "type": "object", "properties": { "type": "string", "value": "number" } } },
+            "credit_score": { "type": "integer", "min": 300, "max": 850, "nullable": true },
+            "savings_rate": { "type": "number" },
+            "investment_portfolio": { "type": "array", "items": { "type": "string" } },
+            "financial_goals": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "transaction": {
+          "attributes": {
+            "amount": { "type": "number" },
+            "currency": { "type": "string" },
+            "category": { "type": "string", "enum": ["housing", "food", "transportation", "healthcare", "education", "entertainment", "savings", "debt", "other"] },
+            "payment_method": { "type": "string", "enum": ["cash", "card", "digital_wallet", "crypto", "bank_transfer"] },
+            "timestamp": { "type": "datetime" }
+          }
+        }
+      }
+    },
+
+    "legal": {
+      "description": "Rights, obligations, and civic status",
+      "entities": {
+        "legal_status": {
+          "attributes": {
+            "citizenship": { "type": "array", "items": { "type": "string" } },
+            "residency_status": { "type": "string", "enum": ["citizen", "permanent_resident", "temporary_resident", "refugee", "undocumented", "stateless"] },
+            "marital_status": { "type": "string", "enum": ["single", "married", "divorced", "widowed", "separated", "domestic_partnership"] },
+            "criminal_record": { "type": "array", "items": { "type": "string" }, "nullable": true },
+            "voting_rights": { "type": "boolean" },
+            "contractual_obligations": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "rights": {
+          "attributes": {
+            "human_rights": { "type": "array", "items": { "type": "string" } },
+            "civil_rights": { "type": "array", "items": { "type": "string" } },
+            "digital_rights": { "type": "array", "items": { "type": "string" } },
+            "restrictions": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+
+    "technology": {
+      "description": "Digital presence, tools, and data footprint",
+      "entities": {
+        "digital_identity": {
+          "attributes": {
+            "email_addresses": { "type": "array", "items": { "type": "string" } },
+            "phone_numbers": { "type": "array", "items": { "type": "string" } },
+            "social_media_handles": { "type": "array", "items": { "type": "object", "properties": { "platform": "string", "handle": "string" } } },
+            "devices": { "type": "array", "items": { "type": "string" } },
+            "data_privacy_settings": { "type": "object" },
+            "digital_footprint_score": { "type": "number", "min": 0, "max": 100 }
+          }
+        },
+        "technology_usage": {
+          "attributes": {
+            "primary_os": { "type": "string", "enum": ["iOS", "Android", "Windows", "macOS", "Linux", "other"] },
+            "apps_used": { "type": "array", "items": { "type": "string" } },
+            "screen_time_daily_hours": { "type": "number" },
+            "ai_tools_used": { "type": "array", "items": { "type": "string" } },
+            "tech_proficiency": { "type": "string", "enum": ["basic", "intermediate", "advanced", "expert"] }
+          }
+        }
+      }
+    },
+
+    "spirituality": {
+      "description": "Meaning, purpose, and transcendent beliefs",
+      "entities": {
+        "belief_system": {
+          "attributes": {
+            "tradition": { "type": "string", "enum": ["atheism", "agnosticism", "christianity", "islam", "judaism", "hinduism", "buddhism", "sikhism", "taoism", "shinto", "indigenous", "new_age", "secular_humanism", "other", "none"] },
+            "practice_frequency": { "type": "string", "enum": ["never", "rarely", "occasionally", "regularly", "daily"] },
+            "community_involvement": { "type": "boolean" },
+            "personal_rituals": { "type": "array", "items": { "type": "string" } },
+            "source_of_meaning": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "philosophy": {
+          "attributes": {
+            "worldview": { "type": "string" },
+            "ethical_framework": { "type": "string" },
+            "life_goals": { "type": "array", "items": { "type": "string" } },
+            "mortality_views": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "environment": {
+      "description": "Physical surroundings, ecology, and sustainability",
+      "entities": {
+        "living_environment": {
+          "attributes": {
+            "climate_zone": { "type": "string" },
+            "urban_rural": { "type": "string", "enum": ["urban", "suburban", "rural", "remote"] },
+            "housing_type": { "type": "string", "enum": ["owned", "rented", "subsidized", "squatting", "nomadic"] },
+            "environmental_exposure": { "type": "array", "items": { "type": "string" } },
+            "access_to_nature": { "type": "string", "enum": ["none", "limited", "moderate", "abundant"] }
+          }
+        },
+        "sustainability_practices": {
+          "attributes": {
+            "carbon_footprint_tons": { "type": "number" },
+            "diet_type": { "type": "string", "enum": ["omnivore", "vegetarian", "vegan", "pescatarian", "flexitarian", "other"] },
+            "transportation_mode": { "type": "string", "enum": ["car", "public_transit", "bike", "walk", "mixed"] },
+            "waste_reduction_practices": { "type": "array", "items": { "type": "string" } },
+            "energy_source": { "type": "string", "enum": ["grid", "renewable", "mixed", "off-grid"] }
+          }
+        }
+      }
+    },
+
+    "politics": {
+      "description": "Governance, civic engagement, and power structures",
+      "entities": {
+        "political_identity": {
+          "attributes": {
+            "ideology": { "type": "string", "enum": ["conservative", "liberal", "progressive", "libertarian", "socialist", "centrist", "anarchist", "other", "none", "undecided"] },
+            "party_affiliation": { "type": "string", "nullable": true },
+            "political_engagement": { "type": "string", "enum": ["none", "low", "moderate", "high", "activist"] },
+            "causes_supported": { "type": "array", "items": { "type": "string" } },
+            "voting_history": { "type": "array", "items": { "type": "object", "properties": { "election": "string", "participated": "boolean" } } }
+          }
+        },
+        "civic_participation": {
+          "attributes": {
+            "volunteer_hours_monthly": { "type": "number" },
+            "organizations": { "type": "array", "items": { "type": "string" } },
+            "protest_participation": { "type": "boolean" },
+            "donation_patterns": { "type": "array", "items": { "type": "object", "properties": { "cause": "string", "amount": "number" } } }
+          }
+        }
+      }
+    }
+  },
+
+  "cross_domain_relationships": {
+    "education_to_career": {
+      "from": "education.qualification",
+      "to": "career.occupation",
+      "type": "enables",
+      "strength": "variable"
+    },
+    "health_to_finance": {
+      "from": "health.health_profile",
+      "to": "finance.financial_profile",
+      "type": "influences",
+      "description": "Health affects earning potential and medical expenses"
+    },
+    "technology_to_social": {
+      "from": "technology.digital_identity",
+      "to": "social.social_network",
+      "type": "mediates",
+      "description": "Digital tools mediate social connections"
+    },
+    "family_to_finance": {
+      "from": "family.household",
+      "to": "finance.financial_profile",
+      "type": "shares",
+      "description": "Household members share financial resources"
+    },
+    "politics_to_legal": {
+      "from": "politics.political_identity",
+      "to": "legal.legal_status",
+      "type": "determines",
+      "description": "Political systems define legal rights"
+    },
+    "culture_to_identity": {
+      "from": "culture.cultural_identity",
+      "to": "identity.person",
+      "type": "constitutes",
+      "description": "Cultural practices shape personal identity"
+    },
+    "environment_to_health": {
+      "from": "environment.living_environment",
+      "to": "health.health_profile",
+      "type": "affects",
+      "description": "Environmental conditions impact health outcomes"
+    },
+    "spirituality_to_values": {
+      "from": "spirituality.belief_system",
+      "to": "identity.person.values",
+      "type": "informs",
+      "description": "Beliefs inform personal values"
+    }
+  },
+
+  "temporal_dimensions": {
+    "life_stages": {
+      "infancy": { "age_range": [0, 2], "key_domains": ["family", "health"] },
+      "early_childhood": { "age_range": [3, 5], "key_domains": ["family", "education", "health"] },
+      "middle_childhood": { "age_range": [6, 11], "key_domains": ["education", "family", "social"] },
+      "adolescence": { "age_range": [12, 17], "key_domains": ["education", "social", "identity", "technology"] },
+      "early_adulthood": { "age_range": [18, 29], "key_domains": ["education", "career", "social", "finance", "identity"] },
+      "middle_adulthood": { "age_range": [30, 49], "key_domains": ["career", "family", "finance", "health"] },
+      "mature_adulthood": { "age_range": [50, 64], "key_domains": ["career", "health", "finance", "spirituality"] },
+      "late_adulthood": { "age_range": [65, 120], "key_domains": ["health", "family", "spirituality", "finance"] }
+    },
+    "events": {
+      "birth": { "domain": "identity", "type": "milestone" },
+      "graduation": { "domain": "education", "type": "achievement" },
+      "marriage": { "domain": "family", "type": "milestone" },
+      "career_change": { "domain": "career", "type": "transition" },
+      "relocation": { "domain": "environment", "type": "transition" },
+      "illness": { "domain": "health", "type": "crisis" },
+      "retirement": { "domain": "career", "type": "milestone" },
+      "death": { "domain": "identity", "type": "termination" }
+    }
+  },
+
+  "metadata": {
+    "privacy_classification": {
+      "public": ["name", "cultural_identity", "political_engagement"],
+      "restricted": ["income", "health_profile", "criminal_record"],
+      "sensitive": ["biography", "mental_health", "digital_identity"],
+      "protected": ["ssn", "biometrics", "genetic_data"]
+    },
+    "compliance_frameworks": ["GDPR", "CCPA", "HIPAA"],
+    "versioning": {
+      "current": "1.0.0",
+      "changelog": [
+        { "version": "1.0.0", "date": "2026-04-21", "changes": "Initial comprehensive schema" }
+      ]
+    }
+  }
+}
+

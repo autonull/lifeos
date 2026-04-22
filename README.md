@@ -4,13 +4,15 @@
 
 ## 🌌 Vision & Purpose
 
-LifeOS is a **schemaless, file-based, agentic life optimization system** designed to treat human life as a "multiverse" of branching timelines. It enables users to:
+LifeOS is a **schemaless, file-based, agentic life optimization system** that treats human life as a "multiverse" of branching possibilities across **comprehensive ontological frameworks** covering individual existence, collective systems, entity relationships, and consumer behavior.
 
-- **Simulate "What If?" Scenarios**: Explore alternative futures before making life-altering decisions.
-- **Detect Cognitive Dissonance**: Proactively identify conflicts between your values and actions.
-- **Visualize Your Future Self**: See the psychological and physiological impact of your choices.
-- **Optimize Across Temporal Horizons**: Balance micro (daily), meso (monthly), and macro (yearly) life strategies.
-- **Therapeutic Reframing**: Use the system as a cognitive tool to heal dissonance and align actions with purpose.
+LifeOS enables you to:
+
+- **Simulate "What If?" Scenarios Across Life Domains**: Explore alternative futures affecting identity, biology, psychology, social connections, career, environment, values, and 40+ subdomains before making life-altering decisions.
+- **Detect Cross-Domain Cognitive Dissonance**: Proactively identify conflicts between your values and actions, your neurotype and environment, your identity and social roles.
+- **Visualize Your Future Self**: See the psychological, physiological, and social impact of your choices across multiple temporal horizons.
+- **Model Collective Impact**: Understand how individual choices ripple through communities and systems.
+- **Therapeutic Reframing**: Use ontology-guided reasoning to heal dissonance, explore identity transitions, and align actions with purpose.
 
 ### Personal Implications
 - **Informed Decision-Making**: Reduce regret by simulating outcomes before committing.
@@ -60,15 +62,30 @@ LifeOS is not just a personal tracker; it's a **civilization-scale engine** (via
 └── insights/               # Dissonance detection logs
 ```
 
-### Ontologies
-- **Life1 (Individual)**: Comprehensive schema for personal life (identity, biology, psychology, social connections, etc.).
-- **Life2 (Civilization)**: Schema for modeling societal systems (demographics, economy, governance, environment, culture, infrastructure).
+### Ontologies (Reference-Only Guides)
+
+LifeOS uses **comprehensive ontological frameworks** downloaded from the official repository. These are **not enforced**—they guide data organization and enable rich cross-domain reasoning. Think of them as overlapping lenses, not separate silos:
+
+**Individual Existence**: Identity, biology, psychology, social connections, environment, lifecycle, activities, values, system interactions, metadata
+
+**Collective Systems**: Demographics, economy, governance, environment, culture, infrastructure, provenance tracking
+
+**Entity Relationships**: Explicit domain mappings with cardinality and cross-references (person → family → career → health → social → culture → finance → legal → technology → spirituality → environment → politics)
+
+**Agent-Centric Modeling**: Multidimensionality, intersectionality, digital-physical hybridity, temporal dynamism, global-local nestedness, neurodiversity paradigms
+
+**Consumer Behavior**: Hierarchical transaction classification for spending analysis
+
+These frameworks **combine freely**—a single life state might draw from all of them simultaneously. A career change simulation could touch identity (self-concept), biology (stress response), social (professional network), finance (income volatility), and consumer behavior (spending patterns) in one branch.
+
+**See `schemas/README.md` for complete documentation.**
 
 ### Hermes Agent Integration
 
 LifeOS includes **Hermes Agent skills** in the `skills/` directory for deep integration:
 
 - **`lifeos-agent-operations`** (Required): Agent-side instructions for operating LifeOS on behalf of the user. Covers schemaless logging, adaptive fidelity, multiverse simulation, and agent-curated maintenance.
+- **`lifeos-agentic-operations`** (New): Enables natural language scenario exploration. Instead of requiring exact ontology paths, users can say "I'm thinking about quitting my job" and the agent maps this to ontological changes automatically.
 
 **To install the skills:**
 ```bash
@@ -77,12 +94,74 @@ LifeOS includes **Hermes Agent skills** in the `skills/` directory for deep inte
 
 # Or manual copy
 cp -r ~/lifeos/skills/lifeos-agent-operations ~/.hermes/skills/productivity/
+cp -r ~/lifeos/skills/lifeos-agentic-operations ~/.hermes/skills/productivity/
 
 # Or use Hermes CLI
 hermes skills install ~/lifeos/skills/lifeos-agent-operations
+hermes skills install ~/lifeos/skills/lifeos-agentic-operations
 ```
 
-See `skills/README.md` for detailed usage instructions.
+**New Agentic Protocol Actions:**
+
+LifeOS now exposes natural language actions via the agent protocol:
+
+| Action | Description | Example |
+|--------|-------------|---------|
+| `explore_scenario` | Create branch from natural language | `{"user_input": "I want to quit my job"}` |
+| `parse_intent` | Parse intent without creating branch | `{"user_input": "I need more freedom"}` |
+| `compare_branches` | Compare multiple scenarios | `{"branch_ids": ["a", "b"]}` |
+| `find_patterns` | Search historical patterns | `{"query": "stress after launch"}` |
+
+See [`HERMES_INTEGRATION.md`](HERMES_INTEGRATION.md) for complete documentation.
+
+
+## 💬 Agentic Interface: Talk to Your Life
+
+LifeOS shines when used through an AI agent like Hermes. Instead of learning CLI syntax or ontology paths, you can simply talk about what's on your mind:
+
+```bash
+# Through Hermes Agent (natural language)
+hermes lifeos "I'm feeling stuck in my job and wondering what else I could do"
+hermes lifeos "What would my life look like if I moved to a quieter place?"
+hermes lifeos "I want more time for creative projects but I'm worried about money"
+hermes lifeos "Should I take that job offer or stay where I am?"
+hermes lifeos "Let's explore what happens if I prioritize my health more"
+```
+
+The agent will:
+1. **Listen** to your casual description
+2. **Map** your words to relevant life domains (career, psychology, finance, etc.)
+3. **Explore** by creating simulated branches
+4. **Surface** insights: patterns, tensions, and opportunities
+5. **Guide** you through options with thoughtful questions
+6. **Help** you decide what to try next—all while keeping your data private
+
+### Example Agent Interaction
+```
+You: "I've been thinking about quitting my job to freelance"
+Agent: "I hear you're considering freelancing. Let me understand what that might look like...
+        
+Based on what you've said, this would affect:
+• Career: employment_type → freelance  
+• Finance: income volatility increases  
+• Psychology: autonomy +3, initial stress +2  
+• Environment: work_location → remote
+
+I notice:
+• Your current stress is 7/10 (highest in 3 months)  
+• You've mentioned feeling unfulfilled 4x this month  
+• On Feb 14, you felt similarly after a big project launch
+
+Options I can model for you:
+1. **Conservative**: Keep job, start freelance on weekends  
+2. **Hybrid**: Part-time employment + freelance clients  
+3. **Radical**: Quit and freelance full-time
+
+Which feels most relevant to explore right now?"
+```
+
+This transforms LifeOS from a tool you operate into a **thinking partner** that helps you explore possibilities, see patterns, and make more aligned decisions—all through natural conversation.
+
 
 ---
 
@@ -205,14 +284,58 @@ lifeos status --json
   "opportunities": []
 }
 ```
-
 ### 8. Advanced: Custom Modifications
+
 You can modify multiple fields in a single branch:
 ```bash
 lifeos explore "balanced-life" \
-  --mod "activities_practices.work_productivity.weekly_hours=30" \
-  --mod "biology.sleep_patterns.average_duration_hours=8" \
-  --mod "psychology.emotional_landscape.stress_level=3"
+ --mod "activities_practices.work_productivity.weekly_hours=30" \
+ --mod "biology.sleep_patterns.average_duration_hours=8" \
+ --mod "psychology.emotional_landscape.stress_level=3"
+```
+
+### 9. Ontology-Guided Scenarios
+
+The ontological frameworks enable rich, cross-domain simulations. These frameworks **combine freely**—each scenario below draws from multiple conceptual lenses simultaneously:
+
+**Identity Exploration**:
+```bash
+# Explore gender transition impacts
+# (draws from: identity, biology, psychology, social_connections)
+lifeos explore "authentic-self" \
+ --mod "identity.names.preferred_name=Alex" \
+ --mod "identity.demographics.pronouns=['they/them']" \
+ --mod "identity.self_concept.gender_euphoria=8"
+```
+
+**Career Change**:
+```bash
+# Switch from corporate to freelance
+# (draws from: career, finance, psychology, environment)
+lifeos explore "freelance-life" \
+ --mod "career.employment_type=freelance" \
+ --mod "career.work_location=remote" \
+ --mod "finance.income_volatility=high" \
+ --mod "psychology.autonomy=9"
+```
+
+**Environment Change**:
+```bash
+# Move from urban to rural
+# (draws from: environment, social_connections, biology)
+lifeos explore "rural-exodus" \
+ --mod "environment.physical_spaces.type=rural" \
+ --mod "environment.air_quality_index=good" \
+ --mod "social_connections.proximity=dispersed"
+```
+
+**Spending Analysis**:
+```bash
+# Analyze consumer spending patterns
+# (draws from: consumer_behavior, finance, psychology)
+lifeos explore "minimalist-budget" \
+ --mod "spending.2.1.1_groceries=reduce_30%" \
+ --mod "spending.2.1.2_prepared_consumption=eliminate"
 ```
 
 ---
@@ -289,14 +412,17 @@ lifeos status --json | jq .
 - ✅ File-based storage with atomic writes
 - ✅ Hybrid physics engine (deterministic + LLM placeholder)
 - ✅ Agent integration (Stdio JSON-RPC)
-- ✅ Life1 (Individual) ontology
+- ✅ Comprehensive ontological frameworks for cross-domain reasoning
+- ✅ Ontology-guided scenario exploration
 
 ### Phase 2 (Next)
-- [ ] **LLM Integration**: Connect to real LLM APIs for dynamic narrative generation.
-- [ ] **Life2 Ontology**: Civilization-level modeling (policy, community, global impact).
-- [ ] **Visualization**: Generate charts/graphs from history data.
-- [ ] **Mobile App**: Sync with iOS/Android for real-time tracking.
-- [ ] **Advanced Physics**: More sophisticated rules (e.g., compound effects, network effects).
+- [ ] **LLM Integration**: Connect to real LLM APIs for dynamic narrative generation using ontological context
+- [ ] **Ontology-Aware Physics**: Rules that span multiple domains (e.g., neurotype × environment × sleep → stress)
+- [ ] **Identity Exploration Tools**: Specialized branches for gender, career, environment transitions
+- [ ] **Dissonance Detection 2.0**: Cross-domain conflict detection using ontological relationships
+- [ ] **Visualization**: Generate charts/graphs from history data mapped to ontological domains
+- [ ] **Mobile App**: Sync with iOS/Android for real-time tracking
+- [ ] **Advanced Physics**: Compound effects, network effects, ontology-guided rule generation
 
 ### Phase 3 (Vision)
 - [ ] **Multiverse Explorer**: Interactive UI to browse all branches.

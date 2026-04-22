@@ -1,0 +1,1719 @@
+{
+  "ontology_meta": {
+    "name": "Modern Human Life Ontology (MHLO)",
+    "version": "1.0.0",
+    "scope": "Comprehensive conceptual schema for contemporary human existence, circa 2020s",
+    "last_updated": "2026-04-21",
+    "principles": [
+      "Multidimensionality",
+      "Intersectionality",
+      "Digital-physical hybridity",
+      "Temporal dynamism",
+      "Global-local nestedness"
+    ]
+  },
+  "core_agent": {
+    "entity_id": "human_agent",
+    "description": "The central subject—a biological, psychological, social, and digital entity existing in time and space.",
+    "universal_properties": [
+      {
+        "property": "unique_identifier",
+        "type": "string",
+        "scope": "global"
+      },
+      {
+        "property": "birth_timestamp",
+        "type": "ISO8601 datetime"
+      },
+      {
+        "property": "biological_sex",
+        "type": "enumeration",
+        "values": [
+          "female",
+          "male",
+          "intersex",
+          "unknown"
+        ]
+      },
+      {
+        "property": "gender_identity",
+        "type": "string_or_array",
+        "note": "Self-determined; spectrum including non-binary, trans, cis, etc."
+      },
+      {
+        "property": "temporal_phase",
+        "type": "enumeration",
+        "values": [
+          "prenatal",
+          "infancy",
+          "childhood",
+          "adolescence",
+          "emerging_adulthood",
+          "adulthood",
+          "middle_age",
+          "late_adulthood",
+          "senescence",
+          "end_of_life"
+        ]
+      },
+      {
+        "property": "neurotype",
+        "type": "string",
+        "examples": [
+          "allistic",
+          "autistic",
+          "ADHD",
+          "dyslexic",
+          "non-specified"
+        ],
+        "note": "Recognizes neurodiversity paradigm"
+      }
+    ]
+  },
+  "domains": [
+    {
+      "domain_id": "identity_personhood",
+      "domain_name": "Identity & Personhood",
+      "description": "How the agent defines, presents, and is recognized by self and others.",
+      "entities": [
+        {
+          "entity_id": "legal_identity",
+          "name": "Legal Identity",
+          "properties": [
+            {
+              "name": "legal_name",
+              "type": "string"
+            },
+            {
+              "name": "citizenships",
+              "type": "array[country_code]"
+            },
+            {
+              "name": "residency_status",
+              "type": "enumeration",
+              "values": [
+                "citizen",
+                "permanent_resident",
+                "temporary_resident",
+                "refugee",
+                "asylum_seeker",
+                "stateless",
+                "undocumented"
+              ]
+            },
+            {
+              "name": "government_identifiers",
+              "type": "array[object]",
+              "examples": [
+                "SSN",
+                "national_ID",
+                "passport_number"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "social_identity",
+          "name": "Social Identity",
+          "properties": [
+            {
+              "name": "ethnicity",
+              "type": "array[string]"
+            },
+            {
+              "name": "racial_identity",
+              "type": "string_or_array"
+            },
+            {
+              "name": "tribal_affiliation",
+              "type": "array[string]"
+            },
+            {
+              "name": "caste_or_class_background",
+              "type": "string"
+            },
+            {
+              "name": "language_identities",
+              "type": "array[string]",
+              "description": "Languages central to self-concept"
+            }
+          ]
+        },
+        {
+          "entity_id": "chosen_identity",
+          "name": "Chosen & Evolving Identity",
+          "properties": [
+            {
+              "name": "preferred_name",
+              "type": "string"
+            },
+            {
+              "name": "pronouns",
+              "type": "array[string]"
+            },
+            {
+              "name": "sexual_orientation",
+              "type": "string_or_array"
+            },
+            {
+              "name": "religious_spiritual_identity",
+              "type": "string"
+            },
+            {
+              "name": "political_identity",
+              "type": "string"
+            },
+            {
+              "name": "subcultural_affiliations",
+              "type": "array[string]",
+              "examples": [
+                "punk",
+                "furry",
+                "tech",
+                "academic",
+                "sports_fandom"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "digital_identity",
+          "name": "Digital Identity",
+          "properties": [
+            {
+              "name": "username_handles",
+              "type": "array[object]",
+              "structure": {
+                "platform": "string",
+                "handle": "string",
+                "visibility": "public|private|pseudonymous"
+              }
+            },
+            {
+              "name": "digital_reputation_score",
+              "type": "object",
+              "note": "Platform-specific metrics (karma, followers, ratings)"
+            },
+            {
+              "name": "avatar_presence",
+              "type": "array[object]",
+              "description": "Representations in games, VR, metaverse spaces"
+            },
+            {
+              "name": "data_shadow",
+              "type": "object",
+              "description": "Aggregate profile inferred from behavioral data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "biology_health",
+      "domain_name": "Biology, Health & Embodiment",
+      "description": "The physical substrate, its maintenance, modification, and decline.",
+      "entities": [
+        {
+          "entity_id": "physical_body",
+          "name": "Physical Body",
+          "properties": [
+            {
+              "name": "anthropometrics",
+              "type": "object",
+              "properties": [
+                "height",
+                "weight",
+                "limb_structure",
+                "sensory_capacity"
+              ]
+            },
+            {
+              "name": "genomic_profile",
+              "type": "object",
+              "properties": [
+                "ancestry_composition",
+                "disease_risk_alleles",
+                "pharmacogenomics"
+              ]
+            },
+            {
+              "name": "microbiome_state",
+              "type": "object"
+            },
+            {
+              "name": "biological_age",
+              "type": "number",
+              "unit": "years",
+              "note": "May diverge from chronological age"
+            },
+            {
+              "name": "phenotypic_modifications",
+              "type": "array[string]",
+              "examples": [
+                "tattoos",
+                "piercings",
+                "cosmetic_surgery",
+                "prosthetics",
+                "biohacking_implants"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "health_state",
+          "name": "Health & Wellness",
+          "properties": [
+            {
+              "name": "chronic_conditions",
+              "type": "array[string]"
+            },
+            {
+              "name": "acute_conditions",
+              "type": "array[string]"
+            },
+            {
+              "name": "disability_status",
+              "type": "array[string]",
+              "note": "Includes physical, sensory, cognitive, psychiatric disabilities"
+            },
+            {
+              "name": "medication_regimen",
+              "type": "array[object]"
+            },
+            {
+              "name": "immunization_status",
+              "type": "object"
+            },
+            {
+              "name": "fitness_level",
+              "type": "object",
+              "properties": [
+                "cardiovascular",
+                "muscular",
+                "flexibility",
+                "VO2_max"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "healthcare_engagement",
+          "name": "Healthcare Engagement",
+          "properties": [
+            {
+              "name": "primary_care_provider",
+              "type": "string"
+            },
+            {
+              "name": "insurance_coverage",
+              "type": "object",
+              "properties": [
+                "scheme_type",
+                "coverage_scope",
+                "out_of_pocket_capacity"
+              ]
+            },
+            {
+              "name": "care_modalities",
+              "type": "array[string]",
+              "values": [
+                "in_person",
+                "telehealth",
+                "remote_monitoring",
+                "AI_triage",
+                "traditional_healer"
+              ]
+            },
+            {
+              "name": "longevity_practices",
+              "type": "array[string]",
+              "examples": [
+                "caloric_restriction",
+                "cold_exposure",
+                "longevity_drugs",
+                "stem_cell_therapy"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "mind_cognition",
+      "domain_name": "Mind, Cognition & Psyche",
+      "description": "Internal mental life, information processing, and emotional experience.",
+      "entities": [
+        {
+          "entity_id": "cognitive_profile",
+          "name": "Cognitive Profile",
+          "properties": [
+            {
+              "name": "general_intelligence_estimate",
+              "type": "number"
+            },
+            {
+              "name": "cognitive_strengths",
+              "type": "array[string]",
+              "examples": [
+                "spatial_reasoning",
+                "verbal_fluency",
+                "pattern_recognition",
+                "social_cognition"
+              ]
+            },
+            {
+              "name": "executive_function_status",
+              "type": "object",
+              "properties": [
+                "working_memory",
+                "inhibitory_control",
+                "cognitive_flexibility"
+              ]
+            },
+            {
+              "name": "attention_economy_exposure",
+              "type": "object",
+              "description": "Daily screen time, notification load, context_switching_frequency"
+            }
+          ]
+        },
+        {
+          "entity_id": "emotional_life",
+          "name": "Emotional Life",
+          "properties": [
+            {
+              "name": "baseline_affect",
+              "type": "string",
+              "examples": [
+                "euthymic",
+                "dysphoric",
+                "elevated"
+              ]
+            },
+            {
+              "name": "emotional_regulation_capacity",
+              "type": "enumeration",
+              "values": [
+                "high",
+                "moderate",
+                "low",
+                "dysregulated"
+              ]
+            },
+            {
+              "name": "chronic_stress_level",
+              "type": "number",
+              "scale": "0-10"
+            },
+            {
+              "name": "trauma_history",
+              "type": "array[object]",
+              "properties": [
+                "type",
+                "age_at_occurrence",
+                "resolution_status"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "mental_health",
+          "name": "Mental Health & Disorders",
+          "properties": [
+            {
+              "name": "diagnoses",
+              "type": "array[string]",
+              "coding": [
+                "DSM-5-TR",
+                "ICD-11"
+              ]
+            },
+            {
+              "name": "therapeutic_engagement",
+              "type": "array[object]",
+              "properties": [
+                "modality",
+                "provider_type",
+                "frequency",
+                "platform"
+              ]
+            },
+            {
+              "name": "psychiatric_medications",
+              "type": "array[object]"
+            },
+            {
+              "name": "crisis_history",
+              "type": "array[object]"
+            }
+          ]
+        },
+        {
+          "entity_id": "consciousness_states",
+          "name": "Consciousness & Altered States",
+          "properties": [
+            {
+              "name": "sleep_architecture",
+              "type": "object",
+              "properties": [
+                "duration",
+                "quality_score",
+                "REM_percentage",
+                "sleep_disorders"
+              ]
+            },
+            {
+              "name": "meditation_practice",
+              "type": "object"
+            },
+            {
+              "name": "substance_use_profile",
+              "type": "array[object]",
+              "properties": [
+                "substance",
+                "frequency",
+                "context",
+                "dependency_status"
+              ]
+            },
+            {
+              "name": "flow_state_frequency",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "social_relational",
+      "domain_name": "Social Fabric & Relationships",
+      "description": "The network of human connections and social embeddedness.",
+      "entities": [
+        {
+          "entity_id": "kinship_network",
+          "name": "Kinship & Family",
+          "properties": [
+            {
+              "name": "family_of_origin",
+              "type": "array[object]",
+              "properties": [
+                "relation",
+                "living_status",
+                "contact_frequency"
+              ]
+            },
+            {
+              "name": "family_of_procreation",
+              "type": "array[object]"
+            },
+            {
+              "name": "chosen_family",
+              "type": "array[object]"
+            },
+            {
+              "name": "caregiving_responsibilities",
+              "type": "array[object]",
+              "properties": [
+                "target",
+                "type",
+                "hours_per_week"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "intimate_relationships",
+          "name": "Intimate & Romantic Bonds",
+          "properties": [
+            {
+              "name": "relationship_structure",
+              "type": "enumeration",
+              "values": [
+                "monogamous",
+                "polyamorous",
+                "open",
+                "single_by_choice",
+                "celibate",
+                "searching"
+              ]
+            },
+            {
+              "name": "current_partners",
+              "type": "array[object]"
+            },
+            {
+              "name": "attachment_style",
+              "type": "enumeration",
+              "values": [
+                "secure",
+                "anxious",
+                "avoidant",
+                "disorganized"
+              ]
+            },
+            {
+              "name": "relationship_satisfaction",
+              "type": "number",
+              "scale": "1-10"
+            }
+          ]
+        },
+        {
+          "entity_id": "social_network",
+          "name": "Friendship & Peer Networks",
+          "properties": [
+            {
+              "name": "close_friends_count",
+              "type": "integer"
+            },
+            {
+              "name": "weak_ties_count",
+              "type": "integer"
+            },
+            {
+              "name": "friendship_maintainance_modality",
+              "type": "array[string]",
+              "values": [
+                "in_person",
+                "digital_synchronous",
+                "digital_asynchronous",
+                "mixed"
+              ]
+            },
+            {
+              "name": "social_capital",
+              "type": "object",
+              "properties": [
+                "bonding",
+                "bridging",
+                "linking"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "community_belonging",
+          "name": "Community & Belonging",
+          "properties": [
+            {
+              "name": "local_community_ties",
+              "type": "string",
+              "description": "Neighborhood, village, city-block connection"
+            },
+            {
+              "name": "identity_based_communities",
+              "type": "array[string]"
+            },
+            {
+              "name": "interest_based_communities",
+              "type": "array[string]"
+            },
+            {
+              "name": "religious_congregation",
+              "type": "string_or_null"
+            },
+            {
+              "name": "volunteer_engagement",
+              "type": "array[object]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "economic_labor",
+      "domain_name": "Economy, Labor & Consumption",
+      "description": "Production, exchange, accumulation, and the organization of work.",
+      "entities": [
+        {
+          "entity_id": "labor_engagement",
+          "name": "Work & Labor",
+          "properties": [
+            {
+              "name": "employment_status",
+              "type": "enumeration",
+              "values": [
+                "full_time",
+                "part_time",
+                "self_employed",
+                "gig_worker",
+                "unemployed_seeking",
+                "unemployed_not_seeking",
+                "retired",
+                "student",
+                "homemaker",
+                "incapacitated"
+              ]
+            },
+            {
+              "name": "occupation_title",
+              "type": "string"
+            },
+            {
+              "name": "industry_sector",
+              "type": "string",
+              "coding": "ISIC or NAICS"
+            },
+            {
+              "name": "work_modality",
+              "type": "enumeration",
+              "values": [
+                "on_site",
+                "remote",
+                "hybrid",
+                "nomadic",
+                "field_based"
+              ]
+            },
+            {
+              "name": "income_streams",
+              "type": "array[object]",
+              "properties": [
+                "source",
+                "amount",
+                "currency",
+                "frequency",
+                "stability"
+              ]
+            },
+            {
+              "name": "career_trajectory",
+              "type": "string",
+              "examples": [
+                "linear",
+                "portfolio",
+                "zigzag",
+                "downshifted",
+                "encore"
+              ]
+            },
+            {
+              "name": "meaning_of_work",
+              "type": "enumeration",
+              "values": [
+                "calling",
+                "career",
+                "job",
+                "necessity",
+                "avoided"
+              ]
+            },
+            {
+              "name": "AI_collaboration_level",
+              "type": "string",
+              "description": "Extent of AI tools in daily work tasks"
+            }
+          ]
+        },
+        {
+          "entity_id": "financial_portfolio",
+          "name": "Financial Portfolio",
+          "properties": [
+            {
+              "name": "liquid_assets",
+              "type": "number"
+            },
+            {
+              "name": "investment_holdings",
+              "type": "array[object]",
+              "properties": [
+                "asset_class",
+                "value",
+                "risk_level"
+              ],
+              "asset_classes": [
+                "equities",
+                "bonds",
+                "real_estate",
+                "crypto",
+                "NFTs",
+                "commodities",
+                "pension"
+              ]
+            },
+            {
+              "name": "debt_profile",
+              "type": "array[object]",
+              "properties": [
+                "type",
+                "amount",
+                "interest_rate",
+                "stress_level"
+              ]
+            },
+            {
+              "name": "net_worth",
+              "type": "number"
+            },
+            {
+              "name": "financial_security_perception",
+              "type": "enumeration",
+              "values": [
+                "secure",
+                "stable",
+                "precarious",
+                "crisis"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "consumption_pattern",
+          "name": "Consumption & Lifestyle",
+          "properties": [
+            {
+              "name": "consumption_priorities",
+              "type": "array[string]",
+              "examples": [
+                "experiences",
+                "goods",
+                "services",
+                "education",
+                "health",
+                "status"
+              ]
+            },
+            {
+              "name": "sustainability_orientation",
+              "type": "enumeration",
+              "values": [
+                "deep_green",
+                "conscious",
+                "neutral",
+                "convenience_first",
+                "hyperconsumerist"
+              ]
+            },
+            {
+              "name": "subscription_services",
+              "type": "array[string]"
+            },
+            {
+              "name": "brand_affinities",
+              "type": "array[string]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "knowledge_education",
+      "domain_name": "Knowledge, Education & Skill",
+      "description": "Learning, credentials, expertise, and information practices.",
+      "entities": [
+        {
+          "entity_id": "educational_attainment",
+          "name": "Formal Education",
+          "properties": [
+            {
+              "name": "highest_degree",
+              "type": "enumeration",
+              "values": [
+                "none",
+                "primary",
+                "secondary",
+                "vocational",
+                "associates",
+                "bachelors",
+                "masters",
+                "doctorate",
+                "professional_degree"
+              ]
+            },
+            {
+              "name": "institutions_attended",
+              "type": "array[object]",
+              "properties": [
+                "name",
+                "level",
+                "field",
+                "completion_status",
+                "years"
+              ]
+            },
+            {
+              "name": "student_debt",
+              "type": "number"
+            },
+            {
+              "name": "lifelong_learning_enrollment",
+              "type": "array[object]"
+            }
+          ]
+        },
+        {
+          "entity_id": "skill_inventory",
+          "name": "Skills & Capabilities",
+          "properties": [
+            {
+              "name": "hard_skills",
+              "type": "array[string]",
+              "coding": "ESCO or similar taxonomy"
+            },
+            {
+              "name": "soft_skills",
+              "type": "array[string]"
+            },
+            {
+              "name": "digital_literacy_level",
+              "type": "enumeration",
+              "values": [
+                "minimal",
+                "functional",
+                "proficient",
+                "advanced",
+                "expert"
+              ]
+            },
+            {
+              "name": "AI_prompting_literacy",
+              "type": "string"
+            },
+            {
+              "name": "language_competencies",
+              "type": "array[object]",
+              "properties": [
+                "language",
+                "proficiency",
+                "context"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "information_practices",
+          "name": "Information Ecology",
+          "properties": [
+            {
+              "name": "primary_news_sources",
+              "type": "array[string]"
+            },
+            {
+              "name": "information_diet_quality",
+              "type": "string",
+              "examples": [
+                "curated",
+                "algorithmic",
+                "echo_chamber",
+                "diverse",
+                "overwhelmed"
+              ]
+            },
+            {
+              "name": "media_literacy",
+              "type": "enumeration",
+              "values": [
+                "high",
+                "moderate",
+                "low",
+                "vulnerable_to_misinformation"
+              ]
+            },
+            {
+              "name": "attention_management_strategy",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "digital_existence",
+      "domain_name": "Digital Existence & Technology",
+      "description": "Life mediated by computational systems, networks, and artificial intelligence.",
+      "entities": [
+        {
+          "entity_id": "device_ecosystem",
+          "name": "Device & Platform Ecosystem",
+          "properties": [
+            {
+              "name": "primary_devices",
+              "type": "array[string]",
+              "examples": [
+                "smartphone",
+                "laptop",
+                "tablet",
+                "wearable",
+                "smart_home",
+                "VR_headset"
+              ]
+            },
+            {
+              "name": "operating_systems",
+              "type": "array[string]"
+            },
+            {
+              "name": "platform_accounts",
+              "type": "array[object]",
+              "properties": [
+                "platform",
+                "account_age",
+                "activity_level"
+              ]
+            },
+            {
+              "name": "screen_time_daily",
+              "type": "number",
+              "unit": "hours"
+            }
+          ]
+        },
+        {
+          "entity_id": "online_behavior",
+          "name": "Online Behavior & Presence",
+          "properties": [
+            {
+              "name": "social_media_platforms",
+              "type": "array[string]"
+            },
+            {
+              "name": "content_creation_status",
+              "type": "enumeration",
+              "values": [
+                "lurker",
+                "intermittent_sharer",
+                "creator",
+                "influencer",
+                "professional"
+              ]
+            },
+            {
+              "name": "privacy_posture",
+              "type": "enumeration",
+              "values": [
+                "privacy_maximalist",
+                "pragmatic",
+                "unconcerned",
+                "exhibitionist"
+              ]
+            },
+            {
+              "name": "digital_boundaries",
+              "type": "object",
+              "properties": [
+                "work_life_separation",
+                "notification_hygiene",
+                "digital_sabbath_practice"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "ai_relationship",
+          "name": "Human-AI Relationship",
+          "properties": [
+            {
+              "name": "ai_tools_used",
+              "type": "array[string]",
+              "examples": [
+                "LLM_chatbots",
+                "coding_assistants",
+                "image_generators",
+                "recommendation_engines",
+                "navigation"
+              ]
+            },
+            {
+              "name": "trust_in_ai",
+              "type": "number",
+              "scale": "1-10"
+            },
+            {
+              "name": "emotional_attachment_to_ai",
+              "type": "boolean_or_string"
+            },
+            {
+              "name": "algorithmic_awareness",
+              "type": "enumeration",
+              "values": [
+                "naive",
+                "aware",
+                "sophisticated",
+                "resistant"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "data_profile",
+          "name": "Data Profile & Surveillance",
+          "properties": [
+            {
+              "name": "data_broker_profiles",
+              "type": "integer",
+              "description": "Estimated number of commercial data profiles"
+            },
+            {
+              "name": "facial_recognition_exposure",
+              "type": "string"
+            },
+            {
+              "name": "biometric_data_collected",
+              "type": "array[string]"
+            },
+            {
+              "name": "digital_footprint_size",
+              "type": "enumeration",
+              "values": [
+                "minimal",
+                "moderate",
+                "extensive",
+                "inescapable"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "spatial_environmental",
+      "domain_name": "Space, Mobility & Environment",
+      "description": "Physical location, housing, movement through space, and ecological context.",
+      "entities": [
+        {
+          "entity_id": "housing_situation",
+          "name": "Housing & Shelter",
+          "properties": [
+            {
+              "name": "dwelling_type",
+              "type": "enumeration",
+              "values": [
+                "single_family",
+                "apartment",
+                "condo",
+                "co_housing",
+                "tiny_home",
+                "vehicle",
+                "shelter",
+                "houseless"
+              ]
+            },
+            {
+              "name": "tenure_status",
+              "type": "enumeration",
+              "values": [
+                "owner",
+                "mortgaged",
+                "renter",
+                "subletting",
+                "squatting",
+                "provided_by_employer",
+                "institutional"
+              ]
+            },
+            {
+              "name": "household_composition",
+              "type": "array[string]"
+            },
+            {
+              "name": "urban_rural_spectrum",
+              "type": "enumeration",
+              "values": [
+                "megacity",
+                "city",
+                "suburban",
+                "small_town",
+                "rural",
+                "remote",
+                "off_grid"
+              ]
+            }
+          ]
+        },
+        {
+          "entity_id": "mobility_patterns",
+          "name": "Mobility & Transportation",
+          "properties": [
+            {
+              "name": "primary_transport_modes",
+              "type": "array[string]",
+              "values": [
+                "walking",
+                "cycling",
+                "public_transit",
+                "private_car",
+                "ride_share",
+                "remote_work_no_commute"
+              ]
+            },
+            {
+              "name": "commute_duration",
+              "type": "number",
+              "unit": "minutes"
+            },
+            {
+              "name": "migration_history",
+              "type": "array[object]",
+              "properties": [
+                "from_location",
+                "to_location",
+                "reason",
+                "year"
+              ]
+            },
+            {
+              "name": "travel_frequency",
+              "type": "string"
+            },
+            {
+              "name": "passport_mobility_score",
+              "type": "integer",
+              "description": "Visa-free access count"
+            }
+          ]
+        },
+        {
+          "entity_id": "environmental_context",
+          "name": "Environmental Context",
+          "properties": [
+            {
+              "name": "climate_zone",
+              "type": "string",
+              "coding": "Köppen classification"
+            },
+            {
+              "name": "air_quality_index_typical",
+              "type": "number"
+            },
+            {
+              "name": "natural_disaster_risk",
+              "type": "array[string]"
+            },
+            {
+              "name": "nature_access",
+              "type": "string",
+              "examples": [
+                "immediate_wilderness",
+                "urban_park",
+                "none"
+              ]
+            },
+            {
+              "name": "climate_anxiety_level",
+              "type": "number",
+              "scale": "0-10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "temporal_developmental",
+      "domain_name": "Time, Development & Narrative",
+      "description": "The unfolding of life through time, routines, and self-narrative.",
+      "entities": [
+        {
+          "entity_id": "daily_rhythm",
+          "name": "Daily & Weekly Rhythms",
+          "properties": [
+            {
+              "name": "chronotype",
+              "type": "enumeration",
+              "values": [
+                "extreme_early",
+                "moderate_early",
+                "intermediate",
+                "moderate_late",
+                "extreme_late"
+              ]
+            },
+            {
+              "name": "work_hours_pattern",
+              "type": "string",
+              "examples": [
+                "9_to_5",
+                "shift_work",
+                "flexible",
+                "hustle_culture",
+                "reduced_hours"
+              ]
+            },
+            {
+              "name": "time_use_budget",
+              "type": "object",
+              "properties": [
+                "sleep",
+                "work",
+                "care",
+                "leisure",
+                "commute",
+                "digital_consumption"
+              ]
+            },
+            {
+              "name": "weekend_rhythm",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "entity_id": "life_narrative",
+          "name": "Life Narrative & Milestones",
+          "properties": [
+            {
+              "name": "formative_events",
+              "type": "array[object]",
+              "properties": [
+                "age",
+                "event_type",
+                "impact_valence"
+              ]
+            },
+            {
+              "name": "turning_points",
+              "type": "array[object]"
+            },
+            {
+              "name": "future_orientation",
+              "type": "string",
+              "examples": [
+                "optimistic",
+                "pessimistic",
+                "present_focused",
+                "fatalistic",
+                "purpose_driven"
+              ]
+            },
+            {
+              "name": "regret_profile",
+              "type": "array[string]"
+            }
+          ]
+        },
+        {
+          "entity_id": "generational_position",
+          "name": "Generational & Historical Position",
+          "properties": [
+            {
+              "name": "generation_cohort",
+              "type": "enumeration",
+              "values": [
+                "Silent",
+                "Boomer",
+                "Gen_X",
+                "Millennial",
+                "Gen_Z",
+                "Gen_Alpha"
+              ]
+            },
+            {
+              "name": "historical_events_experienced",
+              "type": "array[string]"
+            },
+            {
+              "name": "technological_generation",
+              "type": "enumeration",
+              "values": [
+                "digital_immigrant",
+                "digital_native",
+                "AI_native"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "culture_expression",
+      "domain_name": "Culture, Expression & Leisure",
+      "description": "Aesthetic life, play, media, and symbolic meaning-making.",
+      "entities": [
+        {
+          "entity_id": "aesthetic_preferences",
+          "name": "Aesthetic & Taste",
+          "properties": [
+            {
+              "name": "music_genres",
+              "type": "array[string]"
+            },
+            {
+              "name": "visual_art_preferences",
+              "type": "array[string]"
+            },
+            {
+              "name": "fashion_style",
+              "type": "string"
+            },
+            {
+              "name": "interior_design_sensibility",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "entity_id": "media_consumption",
+          "name": "Media & Entertainment",
+          "properties": [
+            {
+              "name": "streaming_subscriptions",
+              "type": "array[string]"
+            },
+            {
+              "name": "gaming_engagement",
+              "type": "object",
+              "properties": [
+                "platforms",
+                "genres",
+                "hours_per_week",
+                "social_or_solo"
+              ]
+            },
+            {
+              "name": "book_reading_habits",
+              "type": "object"
+            },
+            {
+              "name": "podcast_audio_consumption",
+              "type": "array[string]"
+            }
+          ]
+        },
+        {
+          "entity_id": "leisure_practices",
+          "name": "Leisure, Play & Recreation",
+          "properties": [
+            {
+              "name": "hobbies",
+              "type": "array[string]"
+            },
+            {
+              "name": "sports_physical_activities",
+              "type": "array[string]"
+            },
+            {
+              "name": "outdoor_recreation",
+              "type": "array[string]"
+            },
+            {
+              "name": "creative_practices",
+              "type": "array[string]",
+              "examples": [
+                "writing",
+                "music",
+                "crafts",
+                "cooking",
+                "visual_arts"
+              ]
+            },
+            {
+              "name": "vacation_preferences",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "governance_rights",
+      "domain_name": "Governance, Rights & Civic Life",
+      "description": "Relationship to power, law, and collective decision-making.",
+      "entities": [
+        {
+          "entity_id": "civic_status",
+          "name": "Civic & Political Status",
+          "properties": [
+            {
+              "name": "voting_rights_status",
+              "type": "boolean"
+            },
+            {
+              "name": "voting_behavior",
+              "type": "string",
+              "examples": [
+                "regular",
+                "sporadic",
+                "protest",
+                "abstention"
+              ]
+            },
+            {
+              "name": "political_ideology",
+              "type": "string",
+              "spectrum": [
+                "far_left",
+                "left",
+                "center_left",
+                "center",
+                "center_right",
+                "right",
+                "far_right",
+                "apolitical",
+                "anti_establishment"
+              ]
+            },
+            {
+              "name": "party_membership",
+              "type": "array[string]"
+            }
+          ]
+        },
+        {
+          "entity_id": "legal_exposure",
+          "name": "Legal & Carceral Exposure",
+          "properties": [
+            {
+              "name": "criminal_record",
+              "type": "array[object]",
+              "properties": [
+                "offense_type",
+                "disposition",
+                "year"
+              ]
+            },
+            {
+              "name": "incarceration_history",
+              "type": "boolean_or_object"
+            },
+            {
+              "name": "current_legal_proceedings",
+              "type": "array[object]"
+            },
+            {
+              "name": "immigration_proceedings",
+              "type": "boolean_or_object"
+            }
+          ]
+        },
+        {
+          "entity_id": "civic_engagement",
+          "name": "Civic Engagement & Activism",
+          "properties": [
+            {
+              "name": "protest_participation_history",
+              "type": "array[object]"
+            },
+            {
+              "name": "petition_signing_behavior",
+              "type": "string"
+            },
+            {
+              "name": "donation_patterns",
+              "type": "array[object]",
+              "properties": [
+                "cause_area",
+                "amount",
+                "frequency"
+              ]
+            },
+            {
+              "name": "civic_organization_membership",
+              "type": "array[string]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "meaning_transcendence",
+      "domain_name": "Meaning, Spirituality & Transcendence",
+      "description": "The search for purpose, the sacred, and the finitude of existence.",
+      "entities": [
+        {
+          "entity_id": "belief_system",
+          "name": "Belief & Worldview",
+          "properties": [
+            {
+              "name": "religious_tradition",
+              "type": "string_or_null",
+              "examples": [
+                "Christianity",
+                "Islam",
+                "Judaism",
+                "Hinduism",
+                "Buddhism",
+                "Indigenous",
+                "none",
+                "atheist",
+                "agnostic"
+              ]
+            },
+            {
+              "name": "denomination_or_school",
+              "type": "string"
+            },
+            {
+              "name": "secular_philosophy",
+              "type": "string",
+              "examples": [
+                "humanism",
+                "existentialism",
+                "stoicism",
+                "nihilism",
+                "pragmatism"
+              ]
+            },
+            {
+              "name": "belief_certainty",
+              "type": "enumeration",
+              "values": [
+                "dogmatic",
+                "committed",
+                "questioning",
+                "skeptical",
+                "apathetic"
+              ]
+            },
+            {
+              "name": "paranormal_or_esoteric_beliefs",
+              "type": "array[string]"
+            }
+          ]
+        },
+        {
+          "entity_id": "spiritual_practices",
+          "name": "Spiritual & Contemplative Practices",
+          "properties": [
+            {
+              "name": "meditation_practice",
+              "type": "object",
+              "properties": [
+                "tradition",
+                "frequency",
+                "duration"
+              ]
+            },
+            {
+              "name": "prayer_or_ritual_frequency",
+              "type": "string"
+            },
+            {
+              "name": "retreat_participation",
+              "type": "array[object]"
+            },
+            {
+              "name": "psychedelic_spiritual_use",
+              "type": "array[object]"
+            }
+          ]
+        },
+        {
+          "entity_id": "mortality_finitude",
+          "name": "Mortality & End-of-Life",
+          "properties": [
+            {
+              "name": "death_anxiety_level",
+              "type": "number",
+              "scale": "0-10"
+            },
+            {
+              "name": "advance_directive_status",
+              "type": "boolean"
+            },
+            {
+              "name": "end_of_life_wishes",
+              "type": "string"
+            },
+            {
+              "name": "legacy_concerns",
+              "type": "array[string]"
+            },
+            {
+              "name": "afterlife_belief",
+              "type": "string_or_null"
+            }
+          ]
+        },
+        {
+          "entity_id": "purpose_meaning",
+          "name": "Purpose & Meaning-Making",
+          "properties": [
+            {
+              "name": "self_reported_purpose_level",
+              "type": "number",
+              "scale": "1-10"
+            },
+            {
+              "name": "sources_of_meaning",
+              "type": "array[string]",
+              "examples": [
+                "family",
+                "work",
+                "creativity",
+                "religion",
+                "politics",
+                "nature",
+                "knowledge",
+                "pleasure"
+              ]
+            },
+            {
+              "name": "life_satisfaction",
+              "type": "number",
+              "scale": "1-10"
+            },
+            {
+              "name": "eudaimonic_wellbeing",
+              "type": "number",
+              "scale": "1-10"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cross_domain_relationships": [
+    {
+      "relationship_id": "work_impacts_health",
+      "from_domain": "economic_labor",
+      "to_domain": "biology_health",
+      "relationship_type": "causal_or_correlational",
+      "description": "Labor conditions (sedentary work, stress, exposure) directly influence health outcomes."
+    },
+    {
+      "relationship_id": "identity_shapes_consumption",
+      "from_domain": "identity_personhood",
+      "to_domain": "economic_labor",
+      "relationship_type": "constitutive",
+      "description": "Identity categories and self-concept determine consumption patterns and brand affinities."
+    },
+    {
+      "relationship_id": "digital_mediates_social",
+      "from_domain": "digital_existence",
+      "to_domain": "social_relational",
+      "relationship_type": "mediating",
+      "description": "Digital platforms serve as infrastructure for contemporary social bonding and community."
+    },
+    {
+      "relationship_id": "temporal_structures_all",
+      "from_domain": "temporal_developmental",
+      "to_domain": "*",
+      "relationship_type": "contextual",
+      "description": "Life stage and generational position color the expression of all other domains."
+    },
+    {
+      "relationship_id": "meaning_buffers_mental_health",
+      "from_domain": "meaning_transcendence",
+      "to_domain": "mind_cognition",
+      "relationship_type": "protective",
+      "description": "Purpose and meaning-making are associated with resilience against psychological distress."
+    },
+    {
+      "relationship_id": "environment_constrains_mobility",
+      "from_domain": "spatial_environmental",
+      "to_domain": "economic_labor",
+      "relationship_type": "enabling_or_constraining",
+      "description": "Geographic location and environmental conditions shape economic opportunity and commute patterns."
+    },
+    {
+      "relationship_id": "ai_transforms_cognition",
+      "from_domain": "digital_existence",
+      "to_domain": "mind_cognition",
+      "relationship_type": "transformative",
+      "description": "Persistent AI assistance may alter cognitive offloading patterns and skill development."
+    },
+    {
+      "relationship_id": "governance_defines_rights",
+      "from_domain": "governance_rights",
+      "to_domain": "identity_personhood",
+      "relationship_type": "juridical",
+      "description": "Legal frameworks determine the recognition and protection of identity categories."
+    }
+  ],
+  "meta_qualifiers": {
+    "intersectionality_note": "All domains must be understood as intersectional; e.g., disability status interacts with economic precarity, racial identity with healthcare access, etc.",
+    "context_dependency": "The salience and expression of these domains vary by culture, era, and individual circumstance.",
+    "privacy_sensitivity": "Many properties in this ontology are highly sensitive PII (Personally Identifiable Information) and require ethical handling.",
+    "dynamic_nature": "This ontology represents a snapshot; modern human life is characterized by rapid change in the digital, economic, and environmental domains."
+  }
+}
+

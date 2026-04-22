@@ -1,193 +1,513 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Life2: Civilization Ontology",
-  "description": "Comprehensive schema for modeling civilization-level systems, policies, and collective well-being.",
+  "title": "HomoSapiensPerson",
+  "description": "A human individual with biological, cultural, and historical attributes",
   "type": "object",
-  "required": ["demographics", "economy", "governance", "environment", "culture", "infrastructure"],
-  "properties": {
-    "demographics": {
-      "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.org/Person"
+    },
+    {
       "properties": {
-        "population": {
+        "@context": {
+          "type": "string",
+          "default": "https://schema.org",
+          "description": "JSON-LD context for semantic interpretation"
+        },
+        "@type": {
+          "type": "string",
+          "const": "Person"
+        },
+        "identifier": {
           "type": "object",
+          "description": "System-specific identifiers for this person",
           "properties": {
-            "total": {"type": "integer"},
-            "growth_rate": {"type": "number"},
-            "age_distribution": {"type": "object"},
-            "migration_patterns": {"type": "array", "items": {"type": "object"}}
+            "wikidata": {
+              "type": "string",
+              "pattern": "^Q\\d+$",
+              "description": "Wikidata entity identifier"
+            },
+            "viaf": {
+              "type": "string",
+              "description": "Virtual International Authority File identifier"
+            },
+            "orcid": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX]$",
+              "description": "Open Researcher and Contributor ID"
+            }
           }
         },
-        "health_metrics": {
+        "vitalStatus": {
           "type": "object",
+          "description": "Life status information",
           "properties": {
-            "life_expectancy": {"type": "number"},
-            "infant_mortality_rate": {"type": "number"},
-            "disease_prevalence": {"type": "object"}
+            "status": {
+              "type": "string",
+              "enum": [
+                "alive",
+                "deceased",
+                "missing",
+                "fictional"
+              ],
+              "description": "Current life status of the person"
+            },
+            "birthDate": {
+              "type": "string",
+              "format": "date",
+              "description": "Date of birth in ISO 8601 format"
+            },
+            "birthPlace": {
+              "$ref": "#/definitions/Place",
+              "description": "Location where the person was born"
+            },
+            "deathDate": {
+              "type": "string",
+              "format": "date",
+              "description": "Date of death in ISO 8601 format"
+            },
+            "deathPlace": {
+              "$ref": "#/definitions/Place",
+              "description": "Location where the person died"
+            },
+            "causeOfDeath": {
+              "type": "string",
+              "description": "Cause of death if known"
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "biologicalAttributes": {
+          "type": "object",
+          "description": "Physical and biological characteristics",
+          "properties": {
+            "sex": {
+              "type": "string",
+              "enum": [
+                "male",
+                "female",
+                "intersex",
+                "other",
+                "unknown"
+              ],
+              "description": "Biological sex at birth"
+            },
+            "height": {
+              "type": "object",
+              "description": "Physical height measurements",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "cm",
+                    "in",
+                    "m"
+                  ],
+                  "default": "cm"
+                }
+              }
+            },
+            "geneticData": {
+              "type": "object",
+              "description": "Genetic information references",
+              "properties": {
+                "haplogroup": {
+                  "type": "string",
+                  "description": "Mitochondrial or Y-chromosome haplogroup"
+                },
+                "ancestryComposition": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "region": {
+                        "type": "string",
+                        "description": "Geographic region of ancestry"
+                      },
+                      "percentage": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "culturalAffiliations": {
+          "type": "array",
+          "description": "Cultural, ethnic, and national affiliations",
+          "items": {
+            "type": "object",
+            "properties": {
+              "group": {
+                "type": "string",
+                "description": "Name of cultural or ethnic group"
+              },
+              "role": {
+                "type": "string",
+                "description": "Role or status within the group"
+              },
+              "period": {
+                "$ref": "#/definitions/TimePeriod",
+                "description": "Time period of affiliation"
+              }
+            }
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "description": "Personal and familial relationships",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "parent",
+                  "child",
+                  "spouse",
+                  "sibling",
+                  "colleague",
+                  "mentor",
+                  "student",
+                  "friend"
+                ],
+                "description": "Relationship type"
+              },
+              "relatedPerson": {
+                "$ref": "#/definitions/PersonReference",
+                "description": "Reference to related person"
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date",
+                "description": "When the relationship began"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date",
+                "description": "When the relationship ended"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Sources documenting this relationship"
+              }
+            }
+          }
+        },
+        "occupations": {
+          "type": "array",
+          "description": "Occupations and roles throughout life",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Job title or role"
+              },
+              "organization": {
+                "$ref": "#/definitions/OrganizationReference",
+                "description": "Employing organization"
+              },
+              "period": {
+                "$ref": "#/definitions/TimePeriod",
+                "description": "Time period of occupation"
+              },
+              "description": {
+                "type": "string",
+                "description": "Details about the occupation"
+              }
+            }
           }
         },
         "education": {
-          "type": "object",
-          "properties": {
-            "literacy_rate": {"type": "number"},
-            "average_years_of_schooling": {"type": "number"},
-            "access_to_higher_education": {"type": "number"}
+          "type": "array",
+          "description": "Educational background",
+          "items": {
+            "type": "object",
+            "properties": {
+              "institution": {
+                "$ref": "#/definitions/OrganizationReference",
+                "description": "Educational institution"
+              },
+              "degree": {
+                "type": "string",
+                "description": "Degree or certificate obtained"
+              },
+              "field": {
+                "type": "string",
+                "description": "Field of study"
+              },
+              "period": {
+                "$ref": "#/definitions/TimePeriod",
+                "description": "Time period of education"
+              },
+              "thesis": {
+                "type": "string",
+                "description": "Thesis or dissertation title"
+              }
+            }
           }
+        },
+        "contributions": {
+          "type": "array",
+          "description": "Significant contributions and achievements",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "discovery",
+                  "invention",
+                  "artwork",
+                  "publication",
+                  "politicalMovement",
+                  "other"
+                ],
+                "description": "Type of contribution"
+              },
+              "title": {
+                "type": "string",
+                "description": "Title or name of contribution"
+              },
+              "description": {
+                "type": "string",
+                "description": "Detailed description of contribution"
+              },
+              "date": {
+                "type": "string",
+                "format": "date",
+                "description": "Date of contribution"
+              },
+              "significance": {
+                "type": "string",
+                "enum": [
+                  "local",
+                  "regional",
+                  "global",
+                  "civilization"
+                ],
+                "description": "Geographic scope of impact"
+              },
+              "associatedArtifacts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/CulturalArtifactReference"
+                },
+                "description": "Physical or digital artifacts related to contribution"
+              }
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/Provenance",
+          "description": "Provenance information about this person's record"
         }
-      }
-    },
-    "economy": {
+      },
+      "required": [
+        "@context",
+        "@type",
+        "name",
+        "vitalStatus"
+      ]
+    }
+  ],
+  "definitions": {
+    "PersonReference": {
       "type": "object",
+      "description": "Reference to a Person entity",
       "properties": {
-        "gdp": {
-          "type": "object",
-          "properties": {
-            "total": {"type": "number"},
-            "per_capita": {"type": "number"},
-            "growth_rate": {"type": "number"}
-          }
+        "@id": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to the person"
         },
-        "employment": {
-          "type": "object",
-          "properties": {
-            "unemployment_rate": {"type": "number"},
-            "labor_force_participation": {"type": "number"},
-            "sector_distribution": {"type": "object"}
-          }
-        },
-        "inequality": {
-          "type": "object",
-          "properties": {
-            "gini_coefficient": {"type": "number"},
-            "wealth_distribution": {"type": "object"}
-          }
-        },
-        "trade": {
-          "type": "object",
-          "properties": {
-            "exports": {"type": "number"},
-            "imports": {"type": "number"},
-            "balance_of_trade": {"type": "number"}
-          }
+        "name": {
+          "type": "string",
+          "description": "Name of the person"
         }
-      }
+      },
+      "required": [
+        "@id"
+      ]
     },
-    "governance": {
+    "OrganizationReference": {
       "type": "object",
+      "description": "Reference to an Organization entity",
       "properties": {
-        "political_system": {
-          "type": "object",
-          "properties": {
-            "type": {"type": "string"},
-            "stability_index": {"type": "number"},
-            "corruption_index": {"type": "number"}
-          }
+        "@id": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to the organization"
         },
-        "policy_frameworks": {
+        "name": {
+          "type": "string",
+          "description": "Name of the organization"
+        }
+      },
+      "required": [
+        "@id"
+      ]
+    },
+    "Place": {
+      "type": "object",
+      "description": "Geographic location",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Place"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the place"
+        },
+        "geo": {
+          "type": "object",
+          "description": "Geographic coordinates",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "required": [
+            "latitude",
+            "longitude"
+          ]
+        },
+        "address": {
+          "type": "string",
+          "description": "Human-readable address"
+        },
+        "administrativeArea": {
+          "type": "string",
+          "description": "State, province, or region"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country name"
+        }
+      },
+      "required": [
+        "@type",
+        "name"
+      ]
+    },
+    "TimePeriod": {
+      "type": "object",
+      "description": "Time period specification using OWL-Time",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "time:TemporalEntity"
+        },
+        "hasBeginning": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start date and time in ISO 8601 format"
+        },
+        "hasEnd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End date and time in ISO 8601 format"
+        },
+        "duration": {
+          "type": "string",
+          "description": "Duration in ISO 8601 duration format (e.g., 'P1Y2M3DT4H5M6S')"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "CulturalArtifactReference": {
+      "type": "object",
+      "description": "Reference to a Cultural Artifact entity",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to the artifact"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name or identifier of the artifact"
+        }
+      },
+      "required": [
+        "@id"
+      ]
+    },
+    "Provenance": {
+      "type": "object",
+      "description": "Provenance information following PROV-O",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "prov:Entity"
+        },
+        "wasGeneratedBy": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "name": {"type": "string"},
-              "domain": {"type": "string"},
-              "impact_score": {"type": "number"},
-              "implementation_status": {"type": "string"}
+              "@type": {
+                "type": "string",
+                "const": "prov:Activity"
+              },
+              "startedAtTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endedAtTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "wasAssociatedWith": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
             }
           }
         },
-        "civic_engagement": {
-          "type": "object",
-          "properties": {
-            "voter_turnout": {"type": "number"},
-            "trust_in_institutions": {"type": "number"},
-            "civil_society_strength": {"type": "number"}
-          }
-        }
-      }
-    },
-    "environment": {
-      "type": "object",
-      "properties": {
-        "climate": {
-          "type": "object",
-          "properties": {
-            "average_temperature": {"type": "number"},
-            "carbon_emissions": {"type": "number"},
-            "renewable_energy_percentage": {"type": "number"}
-          }
+        "wasAttributedTo": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "URIs of agents who created or contributed to this entity"
         },
-        "biodiversity": {
-          "type": "object",
-          "properties": {
-            "species_richness": {"type": "number"},
-            "habitat_loss_rate": {"type": "number"},
-            "protected_areas_percentage": {"type": "number"}
-          }
-        },
-        "resource_management": {
-          "type": "object",
-          "properties": {
-            "water_availability": {"type": "number"},
-            "waste_recycling_rate": {"type": "number"},
-            "sustainable_practices_index": {"type": "number"}
-          }
-        }
-      }
-    },
-    "culture": {
-      "type": "object",
-      "properties": {
-        "social_cohesion": {
-          "type": "object",
-          "properties": {
-            "trust_between_groups": {"type": "number"},
-            "cultural_diversity_index": {"type": "number"},
-            "social_mobility": {"type": "number"}
-          }
-        },
-        "wellbeing": {
-          "type": "object",
-          "properties": {
-            "happiness_index": {"type": "number"},
-            "mental_health_prevalence": {"type": "number"},
-            "work_life_balance_score": {"type": "number"}
-          }
-        },
-        "innovation": {
-          "type": "object",
-          "properties": {
-            "rd_spending_percentage": {"type": "number"},
-            "patent_filings": {"type": "integer"},
-            "digital_adoption_rate": {"type": "number"}
-          }
-        }
-      }
-    },
-    "infrastructure": {
-      "type": "object",
-      "properties": {
-        "transportation": {
-          "type": "object",
-          "properties": {
-            "public_transit_coverage": {"type": "number"},
-            "road_quality_index": {"type": "number"},
-            "average_commute_time": {"type": "number"}
-          }
-        },
-        "digital": {
-          "type": "object",
-          "properties": {
-            "internet_penetration": {"type": "number"},
-            "broadband_speed": {"type": "number"},
-            "digital_divide_index": {"type": "number"}
-          }
-        },
-        "utilities": {
-          "type": "object",
-          "properties": {
-            "electricity_reliability": {"type": "number"},
-            "clean_water_access": {"type": "number"},
-            "sanitation_coverage": {"type": "number"}
-          }
+        "hadPrimarySource": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "URIs of primary sources for this information"
         }
       }
     }

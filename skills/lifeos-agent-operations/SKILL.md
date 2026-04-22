@@ -237,8 +237,12 @@ create_branch(
 - `~/.lifeos/history/`: Daily snapshots (JSONL)
 - `~/.lifeos/branches/`: Active simulations
 - `~/.lifeos/archive/`: Archived branches
-- `~/lifeos/schemas/life1.json`: Individual ontology (reference only)
-- `~/lifeos/schemas/life2.json`: Civilization ontology (reference only)
+- `~/lifeos/schemas/life1.json`: Individual ontology - comprehensive schema for modern human life (10 domains: identity, biology, psychology, social_connections, environment, lifecycle, activities_practices, existential_dimensions, system_interactions, metadata)
+- `~/lifeos/schemas/life2.json`: Civilization ontology - collective systems, policies, governance (integrates Schema.org, PROV-O, OWL-Time)
+- `~/lifeos/schemas/life3.json`: Entity-relationship ontology - 14 life domains with explicit relationships and cardinality
+- `~/lifeos/schemas/life4.json`: Agent-centric ontology - multidimensional human existence model
+- `~/lifeos/schemas/buy.js`: Consumer spending ontology - hierarchical transaction classification
+- `~/lifeos/schemas/README.md`: Complete ontology documentation and usage guidelines
 - `~/lifeos/lifeos/core.py`: Core engine (schemaless-by-default)
 
 ---

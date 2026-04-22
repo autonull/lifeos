@@ -1,6 +1,7 @@
 """
 LifeOS Agent Protocol
 Stdio JSON-RPC handler for agentic systems.
+Now with natural language intent parsing and agentic scenario exploration.
 """
 
 import json
@@ -8,6 +9,7 @@ import sys
 from lifeos.core import LifeOS
 from lifeos.physics import PhysicsEngine
 from lifeos.cli import main
+from lifeos.agentic import AgenticLifeOS
 
 def handle_request(request: dict) -> dict:
     """Handles a single agent request."""
@@ -81,9 +83,66 @@ def handle_request(request: dict) -> dict:
                 "message": f"Adopted branch: {branch.name}"
             }
         
+        # === NEW AGENTIC ACTIONS ===
+        
+        elif action == "explore_scenario":
+            """
+            Natural language scenario exploration.
+            Params: user_input (str), context (dict, optional)
+            """
+            agent = AgenticLifeOS()
+            result = agent.conversational_explore(
+                params.get("user_input", ""),
+                params.get("context")
+            )
+            return {
+                "status": "success",
+                "data": result
+            }
+        
+        elif action == "parse_intent":
+            """
+            Parse natural language into ontological modifications.
+            Params: user_input (str)
+            """
+            agent = AgenticLifeOS()
+            parsed = agent.parser.parse_intent(params.get("user_input", ""))
+            return {
+                "status": "success",
+                "data": parsed
+            }
+        
+        elif action == "compare_branches":
+            """
+            Compare multiple branches.
+            Params: branch_ids (list), metrics (list, optional)
+            """
+            # Placeholder - would implement comparison logic
+            return {
+                "status": "success",
+                "data": {
+                    "message": "Branch comparison not yet implemented",
+                    "branch_ids": params.get("branch_ids", [])
+                }
+            }
+        
+        elif action == "find_patterns":
+            """
+            Search for historical patterns.
+            Params: query (str), timeframe (str, optional)
+            """
+            # Placeholder - would implement pattern search
+            return {
+                "status": "success",
+                "data": {
+                    "message": "Pattern search not yet implemented",
+                    "query": params.get("query", "")
+                }
+            }
+        
         else:
             return {"status": "error", "message": f"Unknown action: {action}"}
-    
+        
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
